@@ -1,0 +1,78 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'LA Activity Club — Find Your Trail, Find Your People',
+  description = 'Free weekly hikes and curated active retreats for an outdoor wellness community based in Los Angeles.',
+} = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <slot />
+
+  <script>
+    // header background on scroll
+    const header = document.getElementById('siteHeader');
+    if (header) {
+      window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 40);
+      });
+    }
+
+    // reveal-on-scroll for elements with .reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) e.target.classList.add('in');
+        });
+      },
+      { threshold: 0.15 }
+    );
+    revealEls.forEach((el) => io.observe(el));
+
+    // trail progress line + waypoint highlighting
+    const progress = document.getElementById('trailProgress');
+    const waypoints = document.querySelectorAll('.waypoint');
+    const sections = [...waypoints].map((w) =>
+      document.getElementById((w as HTMLElement).dataset.target || '')
+    );
+
+    function onScroll() {
+      if (progress) {
+        const scrollTop = window.scrollY;
+        const docHeight = document.body.scrollHeight - window.innerHeight;
+        const pct = docHeight > 0 ? Math.min(1, scrollTop / docHeight) : 0;
+        const len = 3000;
+        (progress as unknown as SVGPathElement).style.strokeDashoffset = String(len - len * pct);
+      }
+
+      let activeIdx = 0;
+      sections.forEach((sec, i) => {
+        if (sec && sec.getBoundingClientRect().top < window.innerHeight * 0.5) activeIdx = i;
+      });
+      waypoints.forEach((w, i) => w.classList.toggle('active', i <= activeIdx));
+    }
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+  </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+---
+import { igPhotos } from '../data/retreats';
+---
+<section class="instagram" id="instagram">
+  <div class="instagram-head reveal">
+    <div class="eyebrow">Follow the trail</div>
+    <h2>@la_activity_club</h2>
+    <p>15,000+ followers · weekly hikes, trip recaps &amp; the next retreat drop</p>
+  </div>
+  <div class="ig-grid reveal">
+    {igPhotos.map((p) => (
+      <div class="photo">
+        <img src={p.image} alt={p.alt} />
+      </div>
+    ))}
+  </div>
+  <div class="instagram-cta reveal">
+    <a class="btn btn-ghost-dark" href="https://www.instagram.com/la_activity_club/" target="_blank" rel="noopener">
+      Follow us on Instagram
+    </a>
+  </div>
+</section>

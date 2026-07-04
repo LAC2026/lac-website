@@ -1,0 +1,21 @@
+---
+import { waypoints } from '../data/retreats';
+---
+<div class="trail-rail">
+  <svg viewBox="0 0 40 3000" preserveAspectRatio="none">
+    <path
+      class="trail-path"
+      d="M20,0 C10,300 30,500 20,800 C10,1100 30,1300 20,1600 C10,1900 30,2100 20,2400 C10,2700 30,2850 20,3000"
+    />
+    <path
+      class="trail-progress"
+      id="trailProgress"
+      d="M20,0 C10,300 30,500 20,800 C10,1100 30,1300 20,1600 C10,1900 30,2100 20,2400 C10,2700 30,2850 20,3000"
+    />
+  </svg>
+  {waypoints.map((w) => (
+    <div class="waypoint" data-target={w.target} style={`top:${w.top}`}>
+      <span class="mi">{w.mile}</span>
+    </div>
+  ))}
+</div>

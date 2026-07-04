@@ -1,0 +1,27 @@
+---
+import { retreats } from '../data/retreats';
+---
+<section class="retreats" id="retreats">
+  <div class="retreats-head reveal">
+    <h2>Upcoming active retreats</h2>
+    <a class="btn btn-ghost" href="#">View full calendar</a>
+  </div>
+  <div class="retreat-grid">
+    {retreats.map((r) => (
+      <div class="retreat-card reveal">
+        <div class="photo">
+          <img src={r.image} alt={r.imageAlt} />
+        </div>
+        <div class="retreat-card-body">
+          <span class="mi">{r.mile} &mdash; {r.location}</span>
+          <h4>{r.name}</h4>
+          <p class="dates">{r.dates}</p>
+          <div class="retreat-card-foot">
+            <span class="price">Deposit from<br /><b>{r.depositFrom}</b></span>
+            <a class="btn btn-solid" href={`#reserve-${r.slug}`}>Reserve spot</a>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
