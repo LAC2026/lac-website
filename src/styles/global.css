@@ -69,15 +69,18 @@ h1,h2,h3{ font-family: var(--serif); font-weight:500; letter-spacing:-0.01em;}
 }
 .photo:hover img{ transform: scale(1.045); }
 
-/* keep retreat cards and instagram grid in true, bright color (no duotone) */
+/* keep retreat cards, instagram grid, and retreat detail galleries in true, bright color (no duotone) */
 .retreat-card .photo img,
-.ig-grid .photo img{
+.ig-grid .photo img,
+.detail-gallery .photo img{
   filter: none;
 }
 .retreat-card .photo::after,
 .retreat-card .photo::before,
 .ig-grid .photo::after,
-.ig-grid .photo::before{
+.ig-grid .photo::before,
+.detail-gallery .photo::after,
+.detail-gallery .photo::before{
   content: none;
 }
 
@@ -191,6 +194,11 @@ nav.links a::after{
 }
 nav.links a:hover::after{ width:100%; }
 .nav-ctas{ display:flex; gap:14px; align-items:center; }
+.social-icons{ display:flex; gap:16px; align-items:center; margin-right:6px; padding-right:16px; border-right:1px solid rgba(246,242,233,0.25); }
+.social-icons a{ color: var(--sand-2); display:flex; transition: color .25s ease; }
+.social-icons a:hover{ color: var(--tiffany-light); }
+.social-icons svg{ width:19px; height:19px; }
+@media (max-width: 1080px){ .social-icons{ display:none; } }
 @media (max-width: 900px){ nav.links{ display:none; } header{ padding:20px 24px; } }
 
 .btn{
@@ -340,3 +348,82 @@ footer{ background: var(--forest); color: var(--sand-2); padding: 72px 64px 32px
   .reveal{ opacity:1; transform:none; transition:none; }
   .photo img{ transition:none; }
 }
+
+/* ---------- sub-page hero (Retreats index, retreat detail) ---------- */
+.page-hero{
+  position:relative;
+  height: 56vh;
+  min-height: 420px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center;
+  color: var(--sand);
+  overflow:hidden;
+}
+.page-hero .photo{ position:absolute; inset:0; z-index:0; }
+.page-hero .photo img{ filter:none; }
+.page-hero .photo::before{ content:none; }
+.page-hero .photo::after{
+  background: linear-gradient(180deg, rgba(10,26,21,0.55) 0%, rgba(10,26,21,0.35) 40%, rgba(10,26,21,0.7) 100%);
+  mix-blend-mode: normal;
+}
+.page-hero-content{ position:relative; z-index:2; padding: 0 24px; max-width:800px; text-shadow: 0 2px 6px rgba(0,0,0,0.65), 0 8px 30px rgba(0,0,0,0.55); }
+.page-hero h1{ font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight:400; margin-top:14px; }
+.breadcrumb{
+  font-family: var(--mono); font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase;
+  color: var(--sand-2); opacity:0.9;
+}
+.breadcrumb a{ color: var(--tiffany-light); }
+.breadcrumb a:hover{ text-decoration: underline; }
+
+/* ---------- retreats index page ---------- */
+.retreats-page-head{ text-align:center; max-width:640px; margin: 0 auto 56px; }
+.retreats-page-head .eyebrow{ justify-content:center; margin-bottom:18px; }
+.retreats-page-head p{ color: var(--sand-2); font-size:1rem; }
+
+/* ---------- retreat detail page ---------- */
+.retreat-detail-top{ display:grid; grid-template-columns: 1.4fr 1fr; gap:56px; align-items:start; }
+@media (max-width:900px){ .retreat-detail-top{ grid-template-columns:1fr; } }
+.retreat-detail-top h2{ font-size: clamp(1.6rem,2.6vw,2.1rem); margin-bottom:18px; color: var(--forest); }
+.retreat-detail-top p.desc{ color: var(--forest-3); line-height:1.7; margin-bottom:8px; }
+
+.reserve-card{
+  background: var(--forest); color: var(--sand);
+  padding: 32px; border-radius:2px;
+  position: sticky; top: 110px;
+}
+.reserve-card .row{ display:flex; justify-content:space-between; padding: 12px 0; border-bottom:1px solid rgba(246,242,233,0.12); font-size:0.92rem; }
+.reserve-card .row:last-of-type{ border-bottom:none; }
+.reserve-card .row span:first-child{ color: var(--sand-2); }
+.reserve-card .row span:last-child{ color: var(--sand); font-weight:600; }
+.reserve-card .btn{ width:100%; text-align:center; margin-top:20px; }
+.reserve-card .note{ font-size:0.78rem; color: var(--sand-2); opacity:0.75; margin-top:14px; line-height:1.5; }
+
+.included-list{ list-style:none; margin-top:16px; }
+.included-list li{
+  padding: 10px 0 10px 28px; position:relative; color: var(--forest-3); font-size:0.95rem;
+  border-bottom: 1px solid rgba(20,32,25,0.08);
+}
+.included-list li::before{
+  content:'✓'; position:absolute; left:0; top:10px; color: var(--tiffany); font-weight:700;
+}
+
+.itinerary{ margin-top: 20px; }
+.itinerary-day{ display:grid; grid-template-columns: 100px 1fr; gap:24px; padding: 28px 0; border-top:1px solid rgba(20,32,25,0.1); }
+.itinerary-day:first-child{ border-top:none; }
+@media (max-width:640px){ .itinerary-day{ grid-template-columns:1fr; gap:8px; } }
+.itinerary-day .day-label{ font-family: var(--mono); font-size:0.78rem; letter-spacing:0.06em; color: var(--tiffany); text-transform:uppercase; }
+.itinerary-day h4{ font-family: var(--serif); font-size:1.2rem; margin-bottom:8px; color: var(--forest); }
+.itinerary-day p{ color: var(--forest-3); font-size:0.94rem; line-height:1.6; }
+
+.detail-gallery{ display:grid; grid-template-columns: repeat(3,1fr); gap:20px; }
+@media (max-width:800px){ .detail-gallery{ grid-template-columns:1fr; } }
+.detail-gallery .photo{ aspect-ratio: 4/3; }
+
+.section-label{ font-family: var(--serif); font-size:1.6rem; color: var(--forest); margin-bottom:8px; }
+
+.back-link{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family: var(--mono); font-size:0.8rem; letter-spacing:0.04em;
+  color: var(--forest-3); margin-bottom: 8px;
+}
+.back-link:hover{ color: var(--forest); }
