@@ -529,6 +529,26 @@ section.retreat-full-section:first-of-type{ border-top:none; }
 .mission-stats b{ font-family: var(--serif); font-size:2.4rem; font-weight:500; color: var(--sand); }
 .mission-stats span{ font-family: var(--mono); font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase; color: var(--sand-2); }
 
+.value-card .icon{ width:32px; height:32px; color: var(--tiffany); margin-bottom:16px; display:block; }
+
+/* mission photo gallery */
+.mission-gallery{ display:grid; grid-template-columns: repeat(6,1fr); gap:10px; max-width:1100px; margin:0 auto; }
+@media (max-width:900px){ .mission-gallery{ grid-template-columns: repeat(3,1fr); } }
+.mission-gallery .photo{ aspect-ratio:1/1; }
+.mission-gallery .photo img{ filter:none; }
+.mission-gallery .photo::after, .mission-gallery .photo::before{ content:none; }
+
+/* photo-backed stats band */
+.stats-band{ position:relative; padding:0; overflow:hidden; }
+.stats-band .photo{ position:absolute; inset:0; }
+.stats-band .photo img{ filter:none; }
+.stats-band .photo::before{ content:none; }
+.stats-band .photo::after{
+  background: linear-gradient(180deg, rgba(10,26,21,0.55) 0%, rgba(10,26,21,0.72) 100%);
+  mix-blend-mode: normal;
+}
+.stats-band-content{ position:relative; z-index:2; padding: 90px 24px; text-align:center; }
+
 /* ---------- hikes page: connect cards ---------- */
 .connect-grid{ display:grid; grid-template-columns: repeat(2,1fr); gap:28px; max-width:800px; margin:0 auto; }
 @media (max-width:700px){ .connect-grid{ grid-template-columns:1fr; } }
