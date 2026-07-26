@@ -1,0 +1,83 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout
+  title="Contact Us — LA Activity Club"
+  description="Get in touch with LA Activity Club — questions about hikes, retreats, or anything else."
+>
+  <Header />
+
+  <section class="page-hero" style="height:38vh; min-height:280px;">
+    <div class="photo">
+      <img
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Wide_View_of_Sedona_Red_Rock_Country.jpg?width=1800"
+        alt="Sedona red rock country"
+      />
+    </div>
+    <div class="page-hero-content">
+      <div class="breadcrumb"><a href="/">Home</a> / Contact Us</div>
+      <h1>Contact us</h1>
+    </div>
+  </section>
+
+  <section>
+    <div class="reserve-page-grid">
+      <div>
+        <h2 style="color:var(--forest); margin-bottom:8px; font-size:1.6rem;">Send us a note</h2>
+        <p style="color:var(--forest-3); margin-bottom:32px;">
+          Questions about a hike, a retreat, or something else entirely &mdash; a real person
+          reads every message.
+        </p>
+
+        <!--
+          No backend yet, so this opens the visitor's own email app with everything pre-filled
+          (name, subject, message) addressed to team@laactivityclub.com. They hit send from
+          their own inbox — no server needed, and it actually works today.
+        -->
+        <form id="contactForm" class="reserve-form">
+          <label>
+            Full name
+            <input type="text" name="name" id="contactName" required />
+          </label>
+          <label>
+            Subject
+            <input type="text" name="subject" id="contactSubject" required />
+          </label>
+          <label>
+            Message
+            <textarea name="message" id="contactMessage" rows="6" required></textarea>
+          </label>
+          <button class="btn btn-solid" type="submit">Send message</button>
+        </form>
+        <p style="font-size:0.82rem; color:var(--forest-3); opacity:0.75; margin-top:14px;">
+          This opens your email app with the message ready to go &mdash; just hit send.
+        </p>
+      </div>
+
+      <div class="reserve-card">
+        <div class="row"><span>Email</span><span>team@laactivityclub.com</span></div>
+        <div class="row"><span>Instagram</span><span>@la_activity_club</span></div>
+        <div class="row"><span>Telegram</span><span>@LAActivityClub</span></div>
+        <a class="btn btn-ghost" style="width:100%; text-align:center; margin-top:20px; border-color:rgba(246,242,233,0.5);" href="https://www.instagram.com/la_activity_club/" target="_blank" rel="noopener">Message on Instagram</a>
+        <a class="btn btn-ghost" style="width:100%; text-align:center; margin-top:10px; border-color:rgba(246,242,233,0.5);" href="https://t.me/LAActivityClub" target="_blank" rel="noopener">Message on Telegram</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+
+  <script>
+    const form = document.getElementById('contactForm') as HTMLFormElement | null;
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = (document.getElementById('contactName') as HTMLInputElement)?.value || '';
+      const subject = (document.getElementById('contactSubject') as HTMLInputElement)?.value || '';
+      const message = (document.getElementById('contactMessage') as HTMLTextAreaElement)?.value || '';
+      const body = `From: ${name}\n\n${message}`;
+      const mailto = `mailto:team@laactivityclub.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailto;
+    });
+  </script>
+</Layout>

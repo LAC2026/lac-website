@@ -1,0 +1,54 @@
+---
+const locations = [
+  { name: 'Topanga', x: 175, y: 235, note: 'Canyon trails & ocean overlooks' },
+  { name: 'Malibu', x: 110, y: 275, note: 'Coastal bluffs & creek trails' },
+  { name: 'Pacific Palisades', x: 215, y: 285, note: 'Cliffside views over the PCH' },
+  { name: 'Griffith Park', x: 430, y: 230, note: 'City views & the Observatory' },
+  { name: 'Pasadena', x: 560, y: 175, note: 'Eaton Canyon waterfalls' },
+];
+---
+<section class="la-map-section">
+  <div class="retreats-page-head">
+    <div class="eyebrow">Where we hike</div>
+    <h2 style="color:var(--forest); font-size:clamp(1.6rem,2.8vw,2.1rem); margin-top:8px;">All over LA &mdash; and just past it</h2>
+    <p>Topanga, Malibu, the Palisades, Griffith Park, Pasadena, and everywhere in between.</p>
+  </div>
+
+  <div class="la-map-wrap">
+    <svg class="la-map" viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg">
+      <!-- ocean -->
+      <rect x="0" y="0" width="700" height="420" fill="var(--tiffany-light)" opacity="0.18" />
+      <!-- simplified LA basin / coastline land shape -->
+      <path
+        d="M40,180 C90,140 150,120 200,140 C230,110 280,90 330,110 C400,90 470,100 520,140 C580,150 640,190 660,240 C670,300 640,350 580,370 C500,395 400,390 320,375 C240,390 150,380 100,340 C60,310 30,250 40,180 Z"
+        fill="var(--forest)"
+        opacity="0.92"
+      />
+      <!-- coastline dashed accent -->
+      <path
+        d="M40,180 C90,140 150,120 200,140 C230,110 280,90 330,110"
+        fill="none"
+        stroke="var(--tiffany-light)"
+        stroke-width="2"
+        stroke-dasharray="5 7"
+        opacity="0.6"
+      />
+
+      {locations.map((loc) => (
+        <g>
+          <circle cx={loc.x} cy={loc.y} r="7" fill="var(--forest)" stroke="var(--tiffany-light)" stroke-width="2.5" />
+          <circle cx={loc.x} cy={loc.y} r="2.5" fill="var(--tiffany-light)" />
+        </g>
+      ))}
+    </svg>
+
+    <div class="la-map-labels">
+      {locations.map((loc) => (
+        <div class="la-map-label" style={`left:${(loc.x / 700) * 100}%; top:${(loc.y / 420) * 100}%;`}>
+          <span class="la-map-label-name">{loc.name}</span>
+          <span class="la-map-label-note">{loc.note}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
