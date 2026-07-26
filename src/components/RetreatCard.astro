@@ -1,0 +1,25 @@
+---
+import type { Retreat } from '../data/retreats';
+
+export interface Props {
+  retreat: Retreat;
+}
+
+const { retreat: r } = Astro.props;
+---
+<div class="retreat-card reveal">
+  <a href={`/retreats#${r.slug}`}>
+    <div class="photo">
+      <img src={r.image} alt={r.imageAlt} />
+    </div>
+  </a>
+  <div class="retreat-card-body">
+    <span class="mi">{r.mile} &mdash; {r.location}</span>
+    <h4><a href={`/retreats#${r.slug}`}>{r.name}</a></h4>
+    <p class="dates">{r.dates}</p>
+    <div class="retreat-card-foot">
+      <span class="price">Deposit from<br /><b>{r.depositFrom}</b></span>
+      <a class="btn btn-solid" href={`/retreats/${r.slug}/reserve`}>Reserve spot</a>
+    </div>
+  </div>
+</div>

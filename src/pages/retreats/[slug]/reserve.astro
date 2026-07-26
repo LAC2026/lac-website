@@ -1,0 +1,105 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { retreats } from '../../../data/retreats';
+
+export function getStaticPaths() {
+  return retreats.map((retreat) => ({
+    params: { slug: retreat.slug },
+    props: { retreat },
+  }));
+}
+
+const { retreat: r } = Astro.props;
+---
+<Layout
+  title={`Reserve — ${r.name} — LA Activity Club`}
+  description={`Reserve your spot on the ${r.name} retreat.`}
+>
+  <Header />
+
+  <section class="page-hero" style="height:40vh; min-height:300px;">
+    <div class="photo">
+      <img src={r.heroImage} alt={r.heroImageAlt} />
+    </div>
+    <div class="page-hero-content">
+      <div class="breadcrumb">
+        <a href="/">Home</a> / <a href="/retreats">Retreats</a> / <a href={`/retreats#${r.slug}`}>{r.name}</a> / Reserve
+      </div>
+      <h1>Reserve your spot</h1>
+    </div>
+  </section>
+
+  <section>
+    <div class="reserve-page-grid">
+      <div>
+        <h2 style="color:var(--forest); margin-bottom:8px; font-size:1.6rem;">{r.name}</h2>
+        <p style="color:var(--forest-3); margin-bottom:32px;">{r.fullDates} &middot; {r.groupSize}</p>
+
+        <!--
+          TODO: this form currently only demonstrates the intended flow in the browser.
+          It does not process payment or store submissions anywhere yet — that requires
+          wiring up Stripe Checkout (for the deposit charge) and a place to store the
+          submitted contact info (see project roadmap).
+        -->
+        <form id="reserveForm" class="reserve-form">
+          <label>
+            Full name
+            <input type="text" name="name" required />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" required />
+          </label>
+          <label>
+            Phone
+            <input type="tel" name="phone" required />
+          </label>
+          <label>
+            Number of spots
+            <select name="spots">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+            </select>
+          </label>
+          <label>
+            Anything we should know? (dietary needs, roommate preference, etc.)
+            <textarea name="notes" rows="3"></textarea>
+          </label>
+          <button class="btn btn-solid" type="submit">Continue to deposit payment</button>
+        </form>
+
+        <div id="reserveConfirm" class="reserve-confirm" hidden>
+          <p>
+            Thanks! Online deposit payment isn't connected yet &mdash; once Stripe is set up,
+            this is where you'd securely pay your {r.depositFrom} deposit. For now, email
+            <a href="mailto:team@laactivityclub.com">team@laactivityclub.com</a> with your
+            details and we'll hold your spot manually.
+          </p>
+        </div>
+      </div>
+
+      <div class="reserve-card">
+        <div class="row"><span>Deposit due today</span><span>{r.depositFrom}</span></div>
+        <div class="row"><span>Total trip cost</span><span>{r.totalFrom}</span></div>
+        <div class="row"><span>Balance due</span><span>30 days before trip</span></div>
+        <p class="note">Deposit is refundable up to 30 days before departure.</p>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+
+  <script>
+    const form = document.getElementById('reserveForm') as HTMLFormElement | null;
+    const confirmBox = document.getElementById('reserveConfirm');
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      form.hidden = true;
+      if (confirmBox) confirmBox.hidden = false;
+    });
+  </script>
+</Layout>

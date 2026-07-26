@@ -1,0 +1,94 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Newsletter from '../components/Newsletter.astro';
+
+const values = [
+  {
+    title: 'Community first',
+    body: "The hike is the excuse. The point is showing up somewhere every week where people actually know your name — and keep showing up for each other long after the trailhead.",
+  },
+  {
+    title: 'Nature as medicine',
+    body: 'No app, gym, or screen replaces what a few hours on a real trail does for a person. We treat time outside as essential, not optional.',
+  },
+  {
+    title: 'Radically accessible',
+    body: "Weekly hikes are, and always will be, free. Cost should never be the reason someone doesn't get to experience this.",
+  },
+  {
+    title: 'Beyond the trailhead',
+    body: 'For the people who want more, retreats take everything we love about a Saturday hike and stretch it into a few unforgettable days, somewhere further from home.',
+  },
+];
+---
+<Layout
+  title="Our Mission — LA Activity Club"
+  description="Why LA Activity Club exists: free weekly hikes, real community, and active retreats for people who'd rather move outside than sit still."
+>
+  <Header />
+
+  <section class="page-hero">
+    <div class="photo">
+      <img
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Creek_in_old_growth_redwood_forest.jpg?width=1800"
+        alt="Creek in an old-growth redwood forest"
+      />
+    </div>
+    <div class="page-hero-content">
+      <div class="breadcrumb"><a href="/">Home</a> / Our Mission</div>
+      <h1>Our mission</h1>
+    </div>
+  </section>
+
+  <section class="intro" style="padding-bottom:60px;">
+    <div class="eyebrow">Why we exist</div>
+    <p>
+      LAC started as a few friends meeting at a trailhead on a Wednesday morning. Three years
+      and fifteen thousand hikers later, it's still that &mdash; just with better views, and a
+      few more villas along the way.
+    </p>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="retreats-page-head">
+      <div class="eyebrow">What we believe</div>
+      <p>Four things guide every hike we lead and every retreat we plan.</p>
+    </div>
+    <div class="values-grid">
+      {values.map((v) => (
+        <div class="value-card">
+          <h3>{v.title}</h3>
+          <p>{v.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="retreats" style="text-align:center;">
+    <div class="eyebrow" style="justify-content:center; margin-bottom:24px;">The numbers so far</div>
+    <div class="mission-stats">
+      <div><b>15,000+</b><span>hikers</span></div>
+      <div><b>300+</b><span>hikes led</span></div>
+      <div><b>70+</b><span>retreats hosted</span></div>
+    </div>
+  </section>
+
+  <section style="text-align:center;">
+    <h2 style="color:var(--forest); font-size:clamp(1.6rem,3vw,2.2rem); margin-bottom:20px;">
+      Come see for yourself
+    </h2>
+    <p style="color:var(--forest-3); max-width:520px; margin:0 auto 32px;">
+      The easiest way to understand LAC is to show up to a hike. No sign-up, no gear list — just
+      a trail and a group.
+    </p>
+    <div class="hero-ctas" style="justify-content:center;">
+      <a class="btn btn-ghost-dark" href="/#split">See this week's hike</a>
+      <a class="btn btn-solid" href="/retreats">Explore retreats</a>
+    </div>
+  </section>
+
+  <Newsletter />
+  <Footer />
+</Layout>

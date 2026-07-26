@@ -1,0 +1,66 @@
+---
+import type { Retreat } from '../data/retreats';
+
+export interface Props {
+  retreat: Retreat;
+}
+
+const { retreat: r } = Astro.props;
+---
+<section id={r.slug} class="retreat-full-section">
+  <div class="retreat-banner">
+    <div class="photo">
+      <img src={r.heroImage} alt={r.heroImageAlt} />
+    </div>
+    <div class="retreat-banner-content">
+      <span class="mi" style="color:var(--tiffany-light); font-family:var(--mono); font-size:0.78rem; letter-spacing:0.08em;">
+        {r.mile} &mdash; {r.location}
+      </span>
+      <h2>{r.name}</h2>
+      <p>{r.dates}</p>
+    </div>
+  </div>
+
+  <div class="retreat-detail-top">
+    <div>
+      <h3 style="margin-top:0;">{r.summary}</h3>
+      <p class="desc">{r.description}</p>
+
+      <h4 class="section-label" style="margin-top:36px;">What's included</h4>
+      <ul class="included-list">
+        {r.included.map((item) => <li>{item}</li>)}
+      </ul>
+
+      <h4 class="section-label" style="margin-top:36px;">Itinerary</h4>
+      <div class="itinerary">
+        {r.itinerary.map((day) => (
+          <div class="itinerary-day">
+            <div class="day-label">{day.day}</div>
+            <div>
+              <h4>{day.title}</h4>
+              <p>{day.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <h4 class="section-label" style="margin-top:36px;">More from the trip</h4>
+      <div class="detail-gallery">
+        {r.gallery.map((g) => (
+          <div class="photo">
+            <img src={g.image} alt={g.alt} />
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="reserve-card">
+      <div class="row"><span>Dates</span><span>{r.fullDates}</span></div>
+      <div class="row"><span>Group size</span><span>{r.groupSize}</span></div>
+      <div class="row"><span>Deposit</span><span>{r.depositFrom}</span></div>
+      <div class="row"><span>Total from</span><span>{r.totalFrom}</span></div>
+      <a class="btn btn-solid" href={`/retreats/${r.slug}/reserve`}>Reserve your spot</a>
+      <p class="note">Deposit is refundable up to 30 days before departure. Balance is due 30 days before the trip.</p>
+    </div>
+  </div>
+</section>
