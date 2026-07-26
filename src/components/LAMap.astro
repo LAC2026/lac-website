@@ -1,10 +1,10 @@
 ---
 const locations = [
-  { name: 'Malibu', x: 12, y: 62, note: 'Coastal bluffs & creek trails' },
-  { name: 'Topanga', x: 27, y: 40, note: 'Canyon trails & ocean overlooks' },
-  { name: 'Pacific Palisades', x: 20, y: 78, note: 'Cliffside views over the PCH' },
-  { name: 'Griffith Park', x: 58, y: 48, note: 'City views & the Observatory' },
-  { name: 'Pasadena', x: 84, y: 24, note: 'Eaton Canyon waterfalls' },
+  { name: 'Malibu', x: 8, y: 42, note: 'Coastal bluffs & creek trails' },
+  { name: 'Topanga', x: 19, y: 30, note: 'Canyon trails & ocean overlooks' },
+  { name: 'Pacific Palisades', x: 27, y: 50, note: 'Cliffside views over the PCH' },
+  { name: 'Griffith Park', x: 55, y: 24, note: 'City views & the Observatory' },
+  { name: 'Pasadena', x: 81, y: 13, note: 'Eaton Canyon waterfalls' },
 ];
 ---
 <section class="la-map-section">
@@ -16,8 +16,18 @@ const locations = [
 
   <div class="la-map-wrap">
     <svg class="la-map-lines" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,85 C15,70 20,50 30,35 C40,20 55,15 70,20" fill="none" stroke="var(--tiffany)" stroke-width="0.4" stroke-dasharray="1.2 1.6" opacity="0.5" />
+      <!-- stylized SoCal coastline: Malibu -> Santa Monica Bay -> South Bay/Palos Verdes -->
+      <path
+        d="M3,36 C9,38 15,40 23,44 C33,50 39,56 43,64 C46,72 49,80 53,90"
+        fill="none"
+        stroke="var(--tiffany)"
+        stroke-width="0.5"
+        stroke-dasharray="1.4 1.8"
+        opacity="0.6"
+      />
     </svg>
+
+    <div class="la-map-ocean-label" style="left:11%; top:64%;">PACIFIC OCEAN</div>
 
     {locations.map((loc) => (
       <div class="la-pin" style={`left:${loc.x}%; top:${loc.y}%;`}>
