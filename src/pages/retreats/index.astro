@@ -4,6 +4,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Newsletter from '../../components/Newsletter.astro';
 import RetreatFullDetail from '../../components/RetreatFullDetail.astro';
+import PastTrips from '../../components/PastTrips.astro';
 import { retreats } from '../../data/retreats';
 ---
 <Layout
@@ -37,6 +38,8 @@ import { retreats } from '../../data/retreats';
   </section>
 
   {retreats.map((r) => <RetreatFullDetail retreat={r} />)}
+
+  <PastTrips />
 
   <Newsletter />
   <Footer />

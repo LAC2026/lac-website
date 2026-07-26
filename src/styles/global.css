@@ -553,24 +553,33 @@ section.retreat-full-section:first-of-type{ border-top:none; }
 .la-map-section .retreats-page-head{ margin-bottom:40px; }
 .la-map-wrap{
   position:relative; width:100%; max-width:900px; margin:0 auto;
-  aspect-ratio: 700 / 420;
+  aspect-ratio: 16 / 9;
+  background: var(--sand-2);
+  border: 1px solid rgba(20,32,25,0.08);
+  border-radius: 2px;
+  overflow: hidden;
 }
-.la-map{ position:absolute; inset:0; width:100%; height:100%; }
-.la-map-labels{ position:absolute; inset:0; }
-.la-map-label{
-  position:absolute; transform: translate(14px, -50%);
-  display:flex; flex-direction:column; gap:1px;
-  white-space:nowrap;
+.la-map-lines{ position:absolute; inset:0; width:100%; height:100%; }
+.la-pin{
+  position:absolute; transform: translate(-50%,-50%);
+  display:flex; align-items:center; gap:10px;
 }
-.la-map-label-name{
-  font-family: var(--serif); font-size:0.95rem; color: var(--forest); font-weight:500;
+.la-pin-dot{
+  width:12px; height:12px; border-radius:50%; flex-shrink:0;
+  background: var(--forest); border:2.5px solid var(--tiffany);
+  box-shadow: 0 1px 5px rgba(20,32,25,0.25);
 }
-.la-map-label-note{
-  font-family: var(--mono); font-size:0.68rem; color: var(--forest-3); opacity:0.75;
+.la-pin-label{
+  background: var(--sand); padding:7px 14px; border-radius:2px;
+  box-shadow: 0 3px 14px rgba(20,32,25,0.12);
+  display:flex; flex-direction:column; white-space:nowrap;
 }
+.la-pin-name{ font-family: var(--serif); font-size:0.92rem; color: var(--forest); font-weight:500; line-height:1.25; }
+.la-pin-note{ font-family: var(--mono); font-size:0.64rem; color: var(--forest-3); opacity:0.8; }
 @media (max-width:700px){
-  .la-map-label-note{ display:none; }
-  .la-map-label-name{ font-size:0.78rem; }
+  .la-pin-note{ display:none; }
+  .la-pin-name{ font-size:0.74rem; }
+  .la-pin-label{ padding:5px 9px; }
 }
 
 /* ---------- hikes page: connect cards ---------- */

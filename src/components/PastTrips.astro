@@ -1,0 +1,43 @@
+---
+const trips = [
+  {
+    name: 'Yosemite',
+    blurb: 'Sunrise at Tunnel View, a full day on the Mist Trail, and a group dinner under more stars than any of us see in LA.',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Tunnel_View,_Yosemite_Valley,_Yosemite_NP_-_Diliff.jpg?width=900',
+    imageAlt: 'Tunnel View, Yosemite Valley',
+  },
+  {
+    name: 'Sequoia National Park',
+    blurb: 'Standing under the General Sherman tree, then a quiet walk through the grove after the crowds thinned out.',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/General_Sherman_Sequoia_Tree.jpg?width=900',
+    imageAlt: 'General Sherman giant sequoia tree',
+  },
+  {
+    name: 'Grand Canyon',
+    blurb: "A sunrise rim hike, way too many photos, and a group that's stayed close ever since.",
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Colors_of_the_Grand_Canyon_(30569973160).jpg?width=900',
+    imageAlt: 'Grand Canyon',
+  },
+];
+---
+<section style="padding-top:20px;">
+  <div class="retreats-page-head">
+    <div class="eyebrow">Where we've already been</div>
+    <h2 style="color:var(--forest); font-size:clamp(1.6rem,2.8vw,2.1rem); margin-top:8px;">Past trips</h2>
+    <p>A few of the retreats behind us &mdash; more get added to the calendar above throughout the year.</p>
+  </div>
+  <div class="retreat-grid">
+    {trips.map((t) => (
+      <div class="retreat-card">
+        <div class="photo">
+          <img src={t.image} alt={t.imageAlt} />
+        </div>
+        <div class="retreat-card-body">
+          <span class="mi">Past trip</span>
+          <h4>{t.name}</h4>
+          <p class="dates" style="margin-bottom:0;">{t.blurb}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
