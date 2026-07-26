@@ -1,0 +1,28 @@
+---
+---
+<section class="donation-band">
+  <div class="donation-inner reveal">
+    <div class="eyebrow" style="justify-content:center;">Hikes are always free</div>
+    <h2>Leave a trail donation</h2>
+    <p>
+      If a trail meant something to you, you're always welcome to support what we do &mdash;
+      no pressure, ever.
+    </p>
+    <!-- TODO: wire this up to Stripe once set up (see project roadmap). -->
+    <button id="donateBtn" class="btn btn-solid" type="button">Leave a donation</button>
+    <p id="donateNote" class="donation-note" hidden>
+      Online donations aren't connected yet &mdash; email
+      <a href="mailto:team@laactivityclub.com">team@laactivityclub.com</a> if you'd like to send
+      one directly. Thank you!
+    </p>
+  </div>
+
+  <script>
+    const btn = document.getElementById('donateBtn');
+    const note = document.getElementById('donateNote');
+    btn?.addEventListener('click', () => {
+      if (note) note.hidden = false;
+      btn?.setAttribute('hidden', 'true');
+    });
+  </script>
+</section>

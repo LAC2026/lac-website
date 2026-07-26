@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Newsletter from '../components/Newsletter.astro';
+import DonationBand from '../components/DonationBand.astro';
 
 const steps = [
   {
@@ -82,14 +83,7 @@ const steps = [
     </div>
   </section>
 
-  <section style="text-align:center;">
-    <h2 style="color:var(--forest); font-size:clamp(1.5rem,2.6vw,2rem); margin-bottom:16px;">Prefer email?</h2>
-    <p style="color:var(--forest-3); max-width:480px; margin:0 auto 28px;">
-      Get next week's hike details sent straight to your inbox instead.
-    </p>
-    <a class="btn btn-solid" href="/#newsletter">Join the trail list</a>
-  </section>
-
   <Newsletter />
+  <DonationBand />
   <Footer />
 </Layout>
