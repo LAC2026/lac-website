@@ -48,31 +48,6 @@ const {
       { threshold: 0.15 }
     );
     revealEls.forEach((el) => io.observe(el));
-
-    // trail progress line + waypoint highlighting
-    const progress = document.getElementById('trailProgress');
-    const waypoints = document.querySelectorAll('.waypoint');
-    const sections = [...waypoints].map((w) =>
-      document.getElementById((w as HTMLElement).dataset.target || '')
-    );
-
-    function onScroll() {
-      if (progress) {
-        const scrollTop = window.scrollY;
-        const docHeight = document.body.scrollHeight - window.innerHeight;
-        const pct = docHeight > 0 ? Math.min(1, scrollTop / docHeight) : 0;
-        const len = 3000;
-        (progress as unknown as SVGPathElement).style.strokeDashoffset = String(len - len * pct);
-      }
-
-      let activeIdx = 0;
-      sections.forEach((sec, i) => {
-        if (sec && sec.getBoundingClientRect().top < window.innerHeight * 0.5) activeIdx = i;
-      });
-      waypoints.forEach((w, i) => w.classList.toggle('active', i <= activeIdx));
-    }
-    window.addEventListener('scroll', onScroll);
-    onScroll();
   </script>
 </body>
 </html>

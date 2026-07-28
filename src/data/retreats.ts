@@ -326,13 +326,3 @@ export const igPhotos = [
     alt: 'Grand Canyon',
   },
 ];
-
-export const waypoints = [
-  { target: 'hero', mile: 'MI 0.0', top: '2%' },
-  { target: 'intro', mile: 'MI 0.4', top: '19%' },
-  { target: 'split', mile: 'MI 0.9', top: '34%' },
-  { target: 'retreats', mile: 'MI 1.6', top: '53%' },
-  { target: 'testimonial', mile: 'MI 2.1', top: '68%' },
-  { target: 'instagram', mile: 'MI 2.6', top: '82%' },
-  { target: 'newsletter', mile: 'MI 3.0', top: '96%' },
-];

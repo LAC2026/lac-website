@@ -102,59 +102,6 @@ h1,h2,h3{ font-family: var(--serif); font-weight:500; letter-spacing:-0.01em;}
 .hero .eyebrow::before{ background: var(--sand); opacity:0.7; }
 .hero p.sub{ color: var(--sand); }
 
-/* ---------- trail line (signature element) ---------- */
-.trail-rail{
-  position:fixed;
-  left: 28px;
-  top:0;
-  bottom:0;
-  width: 40px;
-  z-index: 40;
-  pointer-events:none;
-}
-@media (max-width: 980px){ .trail-rail{ display:none; } }
-.trail-rail svg{ height:100%; width:100%; overflow:visible; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.55)); }
-.trail-path{
-  fill:none;
-  stroke: var(--tiffany-light);
-  stroke-width:2;
-  stroke-dasharray: 6 8;
-  stroke-linecap: round;
-  opacity:0.85;
-}
-.trail-progress{
-  fill:none;
-  stroke: var(--tiffany-light);
-  stroke-width:2.5;
-  stroke-linecap: round;
-  stroke-dasharray: 3000;
-  stroke-dashoffset: 3000;
-  transition: stroke-dashoffset 0.1s linear;
-}
-.waypoint{
-  position:absolute;
-  left: 14px;
-  width: 14px; height:14px;
-  border-radius:50%;
-  background: var(--forest);
-  border: 2.5px solid var(--tiffany-light);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.5);
-  transform: translateY(-50%);
-  transition: background 0.3s ease;
-}
-.waypoint.active{ background: var(--tiffany); }
-.waypoint .mi{
-  position:absolute;
-  left: 24px; top:50%; transform:translateY(-50%);
-  font-family: var(--mono);
-  font-size: 0.62rem;
-  letter-spacing:0.05em;
-  color: var(--sand);
-  text-shadow: 0 1px 3px rgba(0,0,0,0.7), 0 0 8px rgba(0,0,0,0.4);
-  white-space:nowrap;
-  opacity:0.9;
-}
-
 /* ---------- nav ---------- */
 header{
   position:fixed; top:0; left:0; right:0; z-index:50;

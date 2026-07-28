@@ -1,0 +1,31 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Newsletter from '../../components/Newsletter.astro';
+import PastTrips from '../../components/PastTrips.astro';
+---
+<Layout
+  title="Past Trips — LA Activity Club"
+  description="A look back at LA Activity Club's past retreats — Yosemite, Sequoia, the Grand Canyon, and more."
+>
+  <Header />
+
+  <section class="page-hero">
+    <div class="photo">
+      <img
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Tunnel_View,_Yosemite_Valley,_Yosemite_NP_-_Diliff.jpg?width=1800"
+        alt="Tunnel View, Yosemite Valley"
+      />
+    </div>
+    <div class="page-hero-content">
+      <div class="breadcrumb"><a href="/">Home</a> / <a href="/retreats">Retreats</a> / Past Trips</div>
+      <h1>Past trips</h1>
+    </div>
+  </section>
+
+  <PastTrips />
+
+  <Newsletter />
+  <Footer />
+</Layout>

@@ -1,5 +1,4 @@
 ---
-import { retreats } from '../data/retreats';
 ---
 <header id="siteHeader">
   <a href="/" class="logo">
@@ -22,10 +21,8 @@ import { retreats } from '../data/retreats';
         <svg class="chevron" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
       <div class="dropdown-panel">
-        {retreats.map((r) => (
-          <a href={`/retreats#${r.slug}`}>{r.name}</a>
-        ))}
-        <a href="/retreats" class="dropdown-viewall">View all retreats &rarr;</a>
+        <a href="/retreats">Upcoming Retreats</a>
+        <a href="/retreats/past">Past Trips</a>
       </div>
     </div>
     <a href="/mission">Our Mission</a>

@@ -24,7 +24,12 @@ const trips = [
   <div class="retreats-page-head">
     <div class="eyebrow">Where we've already been</div>
     <h2 style="color:var(--forest); font-size:clamp(1.6rem,2.8vw,2.1rem); margin-top:8px;">Past trips</h2>
-    <p>A few of the retreats behind us &mdash; more get added to the calendar above throughout the year.</p>
+    <p>A few of the retreats behind us.</p>
+    <p style="margin-top:14px;">
+      <a class="link" style="font-family:var(--mono); font-size:0.8rem; color:var(--tiffany); border-bottom:1px solid rgba(79,184,172,0.4); padding-bottom:3px;" href="/retreats">
+        See upcoming retreats &rarr;
+      </a>
+    </p>
   </div>
   <div class="retreat-grid">
     {trips.map((t) => (

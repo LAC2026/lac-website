@@ -4,11 +4,10 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Newsletter from '../../components/Newsletter.astro';
 import RetreatFullDetail from '../../components/RetreatFullDetail.astro';
-import PastTrips from '../../components/PastTrips.astro';
 import { retreats } from '../../data/retreats';
 ---
 <Layout
-  title="Retreats — LA Activity Club"
+  title="Upcoming Retreats — LA Activity Club"
   description="The full calendar of upcoming LA Activity Club retreats — villas, trails, and a group to share it with."
 >
   <Header />
@@ -22,7 +21,7 @@ import { retreats } from '../../data/retreats';
     </div>
     <div class="page-hero-content">
       <div class="breadcrumb"><a href="/">Home</a> / Retreats</div>
-      <h1>Active retreats</h1>
+      <h1>Upcoming retreats</h1>
     </div>
   </section>
 
@@ -34,12 +33,15 @@ import { retreats } from '../../data/retreats';
         you handle showing up. Every retreat includes a refundable deposit to hold your spot,
         with the balance due 30 days before departure.
       </p>
+      <p style="margin-top:14px;">
+        <a class="link" style="font-family:var(--mono); font-size:0.8rem; color:var(--tiffany); border-bottom:1px solid rgba(79,184,172,0.4); padding-bottom:3px;" href="/retreats/past">
+          See where we've already been &rarr;
+        </a>
+      </p>
     </div>
   </section>
 
   {retreats.map((r) => <RetreatFullDetail retreat={r} />)}
-
-  <PastTrips />
 
   <Newsletter />
   <Footer />
