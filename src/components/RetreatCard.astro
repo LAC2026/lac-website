@@ -14,7 +14,7 @@ const { retreat: r } = Astro.props;
     </div>
   </a>
   <div class="retreat-card-body">
-    <span class="mi">{r.mile} &mdash; {r.location}</span>
+    <span class="mi">{r.location}</span>
     <h4><a href={`/retreats#${r.slug}`}>{r.name}</a></h4>
     <p class="dates">{r.dates}</p>
     <div class="retreat-card-foot">

@@ -8,7 +8,6 @@ export interface Retreat {
   slug: string;
   name: string;
   location: string;
-  mile: string;
   dates: string;
   fullDates: string;
   depositFrom: string;
@@ -30,7 +29,6 @@ export const retreats: Retreat[] = [
     slug: 'zion',
     name: 'Zion & The Narrows',
     location: 'Utah',
-    mile: 'MI 1.6',
     dates: 'June 5–7 · Private villa',
     fullDates: 'June 5–7, 2026',
     depositFrom: '$150',
@@ -92,7 +90,6 @@ export const retreats: Retreat[] = [
     slug: 'shasta',
     name: 'Mt. Shasta',
     location: 'California',
-    mile: 'MI 1.7',
     dates: 'June 19–21 · Villa & hot springs',
     fullDates: 'June 19–21, 2026',
     depositFrom: '$150',
@@ -142,7 +139,6 @@ export const retreats: Retreat[] = [
     slug: 'maui',
     name: 'Maui, Hawaii',
     location: 'Hawaii',
-    mile: 'MI 1.8',
     dates: 'July 12–17 · Oceanview villa',
     fullDates: 'July 12–17, 2026',
     depositFrom: '$250',
@@ -204,7 +200,6 @@ export const retreats: Retreat[] = [
     slug: 'tahoe',
     name: 'Lake Tahoe & Eastern Sierra',
     location: 'California',
-    mile: 'MI 1.9',
     dates: 'August 7–9 · Private villa',
     fullDates: 'August 7–9, 2026',
     depositFrom: '$150',
@@ -254,7 +249,6 @@ export const retreats: Retreat[] = [
     slug: 'kings-canyon',
     name: 'Kings Canyon',
     location: 'California',
-    mile: 'MI 2.0',
     dates: 'July 24–26 · Private villa',
     fullDates: 'July 24–26, 2026',
     depositFrom: '$150',
