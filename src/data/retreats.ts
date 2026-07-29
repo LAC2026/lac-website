@@ -31,7 +31,7 @@ export const retreats: Retreat[] = [
     location: 'California',
     dates: 'August 7–9 · Private villa',
     fullDates: 'August 7–9, 2026',
-    depositFrom: '$150',
+    depositFrom: '$250',
     totalFrom: '$500',
     groupSize: '14+ people',
     image: '/images/tahoe-lake.png',
@@ -79,7 +79,7 @@ export const retreats: Retreat[] = [
     location: 'California',
     dates: 'September 18–20 · Private villa',
     fullDates: 'September 18–20, 2026',
-    depositFrom: '$150',
+    depositFrom: '$250',
     totalFrom: '$500',
     groupSize: '16+ people',
     image:
