@@ -367,6 +367,21 @@ footer{ background: var(--forest); color: var(--sand-2); padding: 72px 64px 32px
 .retreats-page-head .eyebrow{ justify-content:center; margin-bottom:18px; }
 .retreats-page-head p{ color: var(--forest-3); font-size:1rem; }
 
+/* ---------- retreat quick-nav (jump to section below) ---------- */
+.retreat-quicknav{
+  display:flex; flex-wrap:wrap; gap:16px; justify-content:center;
+  max-width:900px; margin:0 auto;
+}
+.retreat-quicknav a{
+  display:flex; flex-direction:column; gap:5px;
+  background: var(--forest-2); border:1px solid rgba(246,242,233,0.1);
+  padding:18px 30px; border-radius:2px; min-width:220px;
+  transition: border-color .25s ease, transform .25s ease;
+}
+.retreat-quicknav a:hover{ border-color: var(--tiffany); transform: translateY(-3px); }
+.retreat-quicknav .name{ font-family: var(--serif); font-size:1.15rem; color: var(--sand); font-weight:500; }
+.retreat-quicknav .dates{ font-family: var(--mono); font-size:0.78rem; color: var(--tiffany-light); }
+
 /* ---------- retreat detail page ---------- */
 .retreat-detail-top{ display:grid; grid-template-columns: 1.4fr 1fr; gap:56px; align-items:start; }
 @media (max-width:900px){ .retreat-detail-top{ grid-template-columns:1fr; } }

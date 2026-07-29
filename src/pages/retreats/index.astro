@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import RetreatFullDetail from '../../components/RetreatFullDetail.astro';
+import RetreatQuickNav from '../../components/RetreatQuickNav.astro';
 import { retreats } from '../../data/retreats';
 ---
 <Layout
@@ -38,6 +39,10 @@ import { retreats } from '../../data/retreats';
         </a>
       </p>
     </div>
+  </section>
+
+  <section style="padding-top:0; padding-bottom:40px;">
+    <RetreatQuickNav retreats={retreats} />
   </section>
 
   {retreats.map((r) => <RetreatFullDetail retreat={r} />)}

@@ -1,0 +1,17 @@
+---
+import type { Retreat } from '../data/retreats';
+
+export interface Props {
+  retreats: Retreat[];
+}
+
+const { retreats } = Astro.props;
+---
+<div class="retreat-quicknav">
+  {retreats.map((r) => (
+    <a href={`#${r.slug}`}>
+      <span class="name">{r.name}</span>
+      <span class="dates">{r.dates}</span>
+    </a>
+  ))}
+</div>
