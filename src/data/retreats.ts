@@ -33,7 +33,7 @@ export const retreats: Retreat[] = [
     fullDates: 'August 7–9, 2026',
     depositFrom: '$150',
     totalFrom: '$500',
-    groupSize: '12–16 people',
+    groupSize: '14+ people',
     image: '/images/tahoe-lake.png',
     imageAlt: 'Lake Tahoe\u2019s turquoise water and the Eastern Sierra',
     heroImage: '/images/tahoe-lake.png',
@@ -81,7 +81,7 @@ export const retreats: Retreat[] = [
     fullDates: 'September 18–20, 2026',
     depositFrom: '$150',
     totalFrom: '$500',
-    groupSize: '12–16 people',
+    groupSize: '16+ people',
     image:
       'https://commons.wikimedia.org/wiki/Special:FilePath/Creek_in_old_growth_redwood_forest.jpg?width=700',
     imageAlt: 'Creek in an old-growth redwood forest',
