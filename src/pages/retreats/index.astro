@@ -2,7 +2,6 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import Newsletter from '../../components/Newsletter.astro';
 import RetreatFullDetail from '../../components/RetreatFullDetail.astro';
 import { retreats } from '../../data/retreats';
 ---
@@ -43,6 +42,5 @@ import { retreats } from '../../data/retreats';
 
   {retreats.map((r) => <RetreatFullDetail retreat={r} />)}
 
-  <Newsletter />
   <Footer />
 </Layout>

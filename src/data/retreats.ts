@@ -44,7 +44,7 @@ export const retreats: Retreat[] = [
     included: [
       'Villa accommodation, 2 nights, hot tub & sauna',
       'Round-trip transportation from LA',
-      'Professional massage time',
+      'Professional massage session',
       'BBQ party & an evening sound healing session',
       'The full daily program \u2014 hikes, hot springs, swimming, and more',
     ],
@@ -53,13 +53,13 @@ export const retreats: Retreat[] = [
         day: 'Day 1',
         title: 'Check-in',
         description:
-          'Arrive and settle into the villa. Activities on-site, hot tub, sauna, professional massage time, BBQ and a party to kick things off.',
+          'Arrive and settle into the villa. Activities on-site, hot tub, sauna, a professional massage session, BBQ and a party to kick things off.',
       },
       {
         day: 'Day 2',
         title: 'Eastern Sierra hike',
         description:
-          'A hike through some of the most picturesque mountains in the Eastern Sierra, past alpine lakes. Back at the villa: professional massage time, hot tub, sauna, BBQ, and an evening sound healing session.',
+          'A hike through some of the most picturesque mountains in the Eastern Sierra, past alpine lakes. Back at the villa: a professional massage session, hot tub, sauna, BBQ, and an evening sound healing session.',
       },
       {
         day: 'Day 3',
@@ -94,7 +94,7 @@ export const retreats: Retreat[] = [
     included: [
       'Villa accommodation, 2 nights, hot tub & large private grounds',
       'Round-trip transportation from LA (gas not included)',
-      'Professional massage, both days',
+      'Professional massage session',
       'BBQ, a DJ party, & an evening sound healing session',
       'The full daily program \u2014 hikes, sightseeing, and more',
     ],
