@@ -140,14 +140,11 @@ nav.links a::after{
   background: var(--tiffany); transition: width .3s ease;
 }
 nav.links a:hover::after{ width:100%; }
-.nav-ctas{ display:flex; gap:14px; align-items:center; }
 @media (max-width: 900px){ nav.links{ display:none; } header{ padding:20px 24px; } }
 @media (max-width: 480px){
   header{ padding:16px 16px; }
   .logo{ font-size:1.05rem; gap:8px; }
   .logo svg{ width:22px; height:22px; }
-  .nav-ctas{ gap:8px; }
-  .nav-ctas .btn{ padding:9px 14px; font-size:0.74rem; }
 }
 
 /* Retreats dropdown */
