@@ -43,8 +43,8 @@ export const retreats: Retreat[] = [
       "Some of the most beautiful scenery in California, packed into three days: a hike through the Eastern Sierra past alpine lakes and waterfalls, a soak in a natural hot spring, and a swim in Lake Tahoe's impossibly clear water. Home base is a luxury villa with a hot tub and sauna, and views gorgeous enough that you may not want to leave the porch.",
     included: [
       'Villa accommodation, 2 nights, hot tub & sauna',
-      'Round-trip transportation from LA (gas not included)',
-      'Professional massage, both days',
+      'Round-trip transportation from LA',
+      'Professional massage time',
       'BBQ party & an evening sound healing session',
       'The full daily program \u2014 hikes, hot springs, swimming, and more',
     ],
@@ -53,13 +53,13 @@ export const retreats: Retreat[] = [
         day: 'Day 1',
         title: 'Check-in',
         description:
-          'Arrive and settle into the villa. Activities on-site, hot tub, sauna, a professional massage, and a BBQ party to kick things off.',
+          'Arrive and settle into the villa. Activities on-site, hot tub, sauna, professional massage time, BBQ and a party to kick things off.',
       },
       {
         day: 'Day 2',
         title: 'Eastern Sierra hike',
         description:
-          'A hike through some of the most picturesque mountains in the Eastern Sierra, past alpine lakes. Back at the villa: another massage, hot tub, sauna, BBQ, and an evening sound healing session.',
+          'A hike through some of the most picturesque mountains in the Eastern Sierra, past alpine lakes. Back at the villa: professional massage time, hot tub, sauna, BBQ, and an evening sound healing session.',
       },
       {
         day: 'Day 3',
