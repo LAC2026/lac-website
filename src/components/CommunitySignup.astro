@@ -1,0 +1,41 @@
+---
+---
+<section class="newsletter" id="join-community">
+  <div class="newsletter-inner reveal">
+    <div class="eyebrow" style="justify-content:center;">Join our community</div>
+    <h2>Stay in the loop</h2>
+    <p>Hike details, retreat drops, and trip recaps &mdash; nothing else.</p>
+
+    <!--
+      TODO: wire this up to a real signup endpoint + database once ready (see project roadmap).
+      For now this only demonstrates the intended flow in the browser and doesn't store anything.
+    -->
+    <form id="communityForm" class="newsletter-form">
+      <input type="text" name="name" placeholder="Full name" required />
+      <input type="email" name="email" placeholder="Email address" required />
+      <input type="tel" name="phone" placeholder="Phone number" required />
+      <div class="newsletter-form-row">
+        <input type="text" name="city" placeholder="City" required />
+        <input type="text" name="zip" placeholder="ZIP code" inputmode="numeric" pattern="[0-9]*" required />
+      </div>
+      <button class="btn btn-solid" type="submit">Join the list</button>
+    </form>
+
+    <div id="communityConfirm" class="reserve-confirm" hidden style="margin: 0 auto 20px;">
+      <p>
+        Thanks for signing up! This isn't connected to a mailing list yet &mdash; once it is,
+        you'll start hearing from us with hike details, retreat drops, and trip recaps.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('communityForm') as HTMLFormElement | null;
+    const confirmBox = document.getElementById('communityConfirm');
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      form.hidden = true;
+      if (confirmBox) confirmBox.hidden = false;
+    });
+  </script>
+</section>
