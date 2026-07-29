@@ -556,3 +556,22 @@ section.retreat-full-section:first-of-type{ border-top:none; }
 .connect-card h3{ font-family: var(--serif); font-size:1.3rem; margin-bottom:10px; color: var(--sand); }
 .connect-card p{ color: var(--sand-2); font-size:0.92rem; line-height:1.6; margin-bottom:18px; }
 .connect-cta{ font-family: var(--mono); font-size:0.78rem; letter-spacing:0.05em; color: var(--tiffany-light); }
+
+/* ---------- past trips: full year-grouped history ---------- */
+.trip-history{ max-width:900px; margin:0 auto; }
+.trip-history-year{ margin-bottom:40px; }
+.trip-history-year:last-child{ margin-bottom:0; }
+.trip-history-year h3{
+  font-family: var(--serif); font-size:1.7rem; font-weight:500;
+  color: var(--forest); margin-bottom:18px;
+  display:flex; align-items:center; gap:14px;
+}
+.trip-history-year h3::after{
+  content:''; flex:1; height:1px; background:rgba(20,32,25,0.12);
+}
+.trip-tags{ display:flex; flex-wrap:wrap; gap:10px; }
+.trip-tag{
+  font-family: var(--mono); font-size:0.78rem; color: var(--forest-3);
+  background: var(--sand-2); border:1px solid rgba(20,32,25,0.1);
+  padding:8px 16px; border-radius:2px;
+}

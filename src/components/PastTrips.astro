@@ -1,5 +1,7 @@
 ---
-const trips = [
+import { pastTripsHistory } from '../data/retreats';
+
+const featured = [
   {
     name: 'Yosemite',
     blurb: 'Sunrise at Tunnel View, a full day on the Mist Trail, and a group dinner under more stars than any of us see in LA.',
@@ -32,7 +34,7 @@ const trips = [
     </p>
   </div>
   <div class="retreat-grid">
-    {trips.map((t) => (
+    {featured.map((t) => (
       <div class="retreat-card">
         <div class="photo">
           <img src={t.image} alt={t.imageAlt} />
@@ -41,6 +43,25 @@ const trips = [
           <span class="mi">Past trip</span>
           <h4>{t.name}</h4>
           <p class="dates" style="margin-bottom:0;">{t.blurb}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="retreats-page-head">
+    <div class="eyebrow">The full history</div>
+    <h2 style="color:var(--forest); font-size:clamp(1.6rem,2.8vw,2.1rem); margin-top:8px;">Every trip so far</h2>
+  </div>
+  <div class="trip-history">
+    {pastTripsHistory.map((yearGroup) => (
+      <div class="trip-history-year">
+        <h3>{yearGroup.year}</h3>
+        <div class="trip-tags">
+          {yearGroup.trips.map((trip) => (
+            <span class="trip-tag">{trip}</span>
+          ))}
         </div>
       </div>
     ))}
