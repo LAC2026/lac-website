@@ -10,7 +10,7 @@ export interface Retreat {
   location: string;
   dates: string;
   fullDates: string;
-  depositFrom: string;
+  startDate: string; // ISO date (YYYY-MM-DD), used to close payments 3 days before departure
   totalFrom: string;
   groupSize: string;
   image: string;
@@ -24,6 +24,19 @@ export interface Retreat {
   gallery: { image: string; alt: string }[];
 }
 
+export const refundPolicy = {
+  summary: 'Full balance due at booking \u2014 no deposit option.',
+  tiers: [
+    { window: '20+ days before departure', amount: '100% refund' },
+    { window: '10\u201319 days before departure', amount: '50% refund' },
+    { window: 'Less than 10 days before departure', amount: 'No refund' },
+  ],
+  bookingCutoff:
+    'Bookings close 3 days before departure and payments can no longer be accepted after that point.',
+  companyCancellation:
+    "If LA Activity Club cancels a retreat for a reason within our control, guests will receive a 100% refund of all amounts paid for that retreat, regardless of the refund schedule above. This guarantee does not extend to cancellations caused by events outside our reasonable control (including severe weather, natural disasters, government restrictions, or other force majeure events); in those cases we will work with guests in good faith on rescheduling or a partial refund where possible.",
+};
+
 export const retreats: Retreat[] = [
   {
     slug: 'tahoe',
@@ -31,7 +44,7 @@ export const retreats: Retreat[] = [
     location: 'California',
     dates: 'August 7–9 · Private villa',
     fullDates: 'August 7–9, 2026',
-    depositFrom: '$250',
+    startDate: '2026-08-07',
     totalFrom: '$500',
     groupSize: '14+ people',
     image: '/images/tahoe-lake.png',
@@ -79,7 +92,7 @@ export const retreats: Retreat[] = [
     location: 'California',
     dates: 'September 18–20 · Private villa',
     fullDates: 'September 18–20, 2026',
-    depositFrom: '$250',
+    startDate: '2026-09-18',
     totalFrom: '$500',
     groupSize: '16+ people',
     image:

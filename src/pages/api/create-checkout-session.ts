@@ -6,6 +6,9 @@ import type { APIRoute } from 'astro';
 import Stripe from 'stripe';
 import { retreats } from '../../data/retreats';
 
+const MS_PER_DAY = 1000 * 60 * 60 * 24;
+const BOOKING_CUTOFF_DAYS = 3;
+
 export const POST: APIRoute = async ({ request, url }) => {
   try {
     const secretKey = import.meta.env.STRIPE_SECRET_KEY;
@@ -36,8 +39,21 @@ export const POST: APIRoute = async ({ request, url }) => {
       });
     }
 
-    // depositFrom looks like "$250" - pull out the number and convert to cents for Stripe.
-    const depositDollars = parseInt(retreat.depositFrom.replace(/[^0-9]/g, ''), 10) || 0;
+    // Never trust the client alone on this - always re-check the booking cutoff on the server too.
+    const startDate = new Date(`${retreat.startDate}T00:00:00`);
+    const today = new Date();
+    const daysUntilStart = Math.ceil((startDate.getTime() - today.getTime()) / MS_PER_DAY);
+    if (daysUntilStart < BOOKING_CUTOFF_DAYS) {
+      return new Response(
+        JSON.stringify({
+          error: `Bookings for ${retreat.name} are closed. Payments are no longer accepted within ${BOOKING_CUTOFF_DAYS} days of departure.`,
+        }),
+        { status: 400, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
+    // Full trip cost is due at booking now - no deposit/balance split.
+    const totalDollars = parseInt(retreat.totalFrom.replace(/[^0-9]/g, ''), 10) || 0;
     const spotsCount = Math.max(1, parseInt(spots, 10) || 1);
 
     const session = await stripe.checkout.sessions.create({
@@ -49,10 +65,10 @@ export const POST: APIRoute = async ({ request, url }) => {
           price_data: {
             currency: 'usd',
             product_data: {
-              name: `${retreat.name} \u2014 Deposit (${spotsCount} spot${spotsCount > 1 ? 's' : ''})`,
+              name: `${retreat.name} \u2014 Full payment (${spotsCount} spot${spotsCount > 1 ? 's' : ''})`,
               description: retreat.fullDates,
             },
-            unit_amount: depositDollars * 100,
+            unit_amount: totalDollars * 100,
           },
           quantity: spotsCount,
         },
@@ -67,7 +83,7 @@ export const POST: APIRoute = async ({ request, url }) => {
         spots: String(spotsCount),
         notes: notes || '',
       },
-      success_url: `${url.origin}/retreats/${slug}/reserve?success=true`,
+      success_url: `${url.origin}/retreats/${slug}/reserve/success`,
       cancel_url: `${url.origin}/retreats/${slug}/reserve?canceled=true`,
     });
 

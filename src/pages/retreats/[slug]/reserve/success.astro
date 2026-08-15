@@ -1,0 +1,62 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import Header from '../../../../components/Header.astro';
+import Footer from '../../../../components/Footer.astro';
+import { retreats } from '../../../../data/retreats';
+
+export function getStaticPaths() {
+  return retreats.map((retreat) => ({
+    params: { slug: retreat.slug },
+    props: { retreat },
+  }));
+}
+
+const { retreat: r } = Astro.props;
+---
+<Layout
+  title={`You're in! — ${r.name} — LA Activity Club`}
+  description={`Your spot on the ${r.name} retreat is reserved.`}
+>
+  <Header />
+
+  <section class="page-hero" style="height:36vh; min-height:260px;">
+    <div class="photo">
+      <img src={r.heroImage} alt={r.heroImageAlt} />
+    </div>
+    <div class="page-hero-content">
+      <div class="breadcrumb">
+        <a href="/">Home</a> / <a href="/retreats">Retreats</a> / <a href={`/retreats#${r.slug}`}>{r.name}</a> / Confirmed
+      </div>
+      <h1>You're in!</h1>
+    </div>
+  </section>
+
+  <section style="text-align:center;">
+    <div class="success-check">&check;</div>
+    <h2 style="color:var(--forest); font-size:clamp(1.5rem,2.8vw,2rem); margin-bottom:16px;">
+      Your spot on {r.name} is reserved
+    </h2>
+    <p style="color:var(--forest-3); max-width:560px; margin:0 auto 8px;">
+      Your payment of {r.totalFrom} went through in full, and a receipt was sent to the email you entered.
+    </p>
+    <p style="color:var(--forest-3); max-width:560px; margin:0 auto 40px;">
+      {r.fullDates} &middot; {r.groupSize}
+    </p>
+
+    <div class="success-next">
+      <h3>What happens next</h3>
+      <ul>
+        <li>We'll follow up by email with the full itinerary and packing details.</li>
+        <li>Refunds follow our standard policy below if your plans change.</li>
+        <li>Questions in the meantime? Reach out any time.</li>
+      </ul>
+    </div>
+
+    <div class="hero-ctas" style="justify-content:center; margin-top:36px;">
+      <a class="btn btn-ghost-dark" href="/contact">Contact us</a>
+      <a class="btn btn-solid" href="/retreats">View other retreats</a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

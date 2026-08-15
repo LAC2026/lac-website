@@ -2,7 +2,7 @@
 import Layout from '../../../layouts/Layout.astro';
 import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
-import { retreats } from '../../../data/retreats';
+import { retreats, refundPolicy } from '../../../data/retreats';
 
 export function getStaticPaths() {
   return retreats.map((retreat) => ({
@@ -41,14 +41,15 @@ const { retreat: r } = Astro.props;
           <p>Checkout was canceled &mdash; no charge was made. You can try again whenever you're ready.</p>
         </div>
 
-        <div id="reserveSuccess" class="reserve-confirm" hidden>
+        <div id="reserveClosed" class="reserve-confirm" hidden style="border-left-color:#B3261E;">
           <p>
-            <strong>You're in!</strong> Your deposit went through and your spot is reserved.
-            A confirmation was sent to your email. We'll be in touch with next steps.
+            Bookings for this retreat are closed &mdash; payments are no longer accepted within
+            3 days of departure. Email <a href="mailto:team@laactivityclub.com">team@laactivityclub.com</a>
+            if you have questions.
           </p>
         </div>
 
-        <form id="reserveForm" class="reserve-form" data-slug={r.slug}>
+        <form id="reserveForm" class="reserve-form" data-slug={r.slug} data-start={r.startDate}>
           <label>
             Full name
             <input type="text" name="name" required />
@@ -82,7 +83,7 @@ const { retreat: r } = Astro.props;
             Anything we should know?
             <textarea name="notes" rows="3"></textarea>
           </label>
-          <button class="btn btn-solid" type="submit" id="reserveSubmitBtn">Continue to deposit payment</button>
+          <button class="btn btn-solid" type="submit" id="reserveSubmitBtn">Continue to payment</button>
           <p id="reserveError" class="reserve-error" hidden>
             Something went wrong. Please try again, or email
             <a href="mailto:team@laactivityclub.com">team@laactivityclub.com</a> directly.
@@ -91,10 +92,20 @@ const { retreat: r } = Astro.props;
       </div>
 
       <div class="reserve-card">
-        <div class="row"><span>Deposit due today</span><span>{r.depositFrom}</span></div>
-        <div class="row"><span>Total trip cost</span><span>{r.totalFrom}</span></div>
-        <div class="row"><span>Balance due</span><span>1 week before trip</span></div>
-        <p class="note">Deposit is refundable up to 20 days before departure.</p>
+        <div class="row"><span>Amount due today</span><span>{r.totalFrom}</span></div>
+        <p class="note" style="margin-top:2px;">{refundPolicy.summary}</p>
+
+        <div class="refund-tiers">
+          {refundPolicy.tiers.map((t) => (
+            <div class="refund-tier-row">
+              <span>{t.window}</span>
+              <span>{t.amount}</span>
+            </div>
+          ))}
+        </div>
+
+        <p class="note">{refundPolicy.bookingCutoff}</p>
+        <p class="note">{refundPolicy.companyCancellation}</p>
       </div>
     </div>
   </section>
@@ -105,14 +116,24 @@ const { retreat: r } = Astro.props;
     const form = document.getElementById('reserveForm') as HTMLFormElement | null;
     const errorBox = document.getElementById('reserveError');
     const submitBtn = document.getElementById('reserveSubmitBtn') as HTMLButtonElement | null;
+    const closedBox = document.getElementById('reserveClosed');
 
-    // Show a message if we just got redirected back from Stripe
+    // Show a message if we just got redirected back from a canceled Stripe checkout
     const params = new URLSearchParams(location.search);
-    if (params.get('success') === 'true') {
-      document.getElementById('reserveSuccess')?.removeAttribute('hidden');
-      form?.setAttribute('hidden', 'true');
-    } else if (params.get('canceled') === 'true') {
+    if (params.get('canceled') === 'true') {
       document.getElementById('reserveCanceled')?.removeAttribute('hidden');
+    }
+
+    // Client-side check so people don't fill out the whole form only to be rejected -
+    // the server (create-checkout-session) enforces this too, so this isn't the only check.
+    const BOOKING_CUTOFF_DAYS = 3;
+    const startDate = form ? new Date(`${form.dataset.start}T00:00:00`) : null;
+    if (startDate) {
+      const daysUntilStart = Math.ceil((startDate.getTime() - Date.now()) / (1000 * 60 * 60 * 24));
+      if (daysUntilStart < BOOKING_CUTOFF_DAYS) {
+        form?.setAttribute('hidden', 'true');
+        closedBox?.removeAttribute('hidden');
+      }
     }
 
     form?.addEventListener('submit', async (e) => {
@@ -151,7 +172,7 @@ const { retreat: r } = Astro.props;
         if (errorBox) errorBox.hidden = false;
         if (submitBtn) {
           submitBtn.disabled = false;
-          submitBtn.textContent = 'Continue to deposit payment';
+          submitBtn.textContent = 'Continue to payment';
         }
       }
     });

@@ -18,7 +18,7 @@ const { retreat: r } = Astro.props;
     <h4><a href={`/retreats#${r.slug}`}>{r.name}</a></h4>
     <p class="dates">{r.dates}</p>
     <div class="retreat-card-foot">
-      <span class="price">Deposit from<br /><b>{r.depositFrom}</b></span>
+      <span class="price">Price<br /><b>{r.totalFrom}</b></span>
       <a class="btn btn-solid" href={`/retreats/${r.slug}/reserve`}>Reserve spot</a>
     </div>
   </div>
