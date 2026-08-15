@@ -475,6 +475,8 @@ section.retreat-full-section:first-of-type{ border-top:none; }
 .reserve-confirm{ background: var(--sand-2); border-left:3px solid var(--tiffany); padding:20px 24px; max-width:480px; }
 .reserve-confirm p{ color: var(--forest-3); font-size:0.92rem; line-height:1.6; }
 .reserve-confirm a{ color: var(--forest); text-decoration:underline; text-underline-offset:3px; }
+.reserve-error{ color:#B3261E; font-size:0.85rem; margin-top:10px; }
+.reserve-error a{ color:#B3261E; text-decoration:underline; }
 
 /* ---------- mission page ---------- */
 .values-grid{ display:grid; grid-template-columns: repeat(2,1fr); gap:28px; max-width: 900px; margin:0 auto; }

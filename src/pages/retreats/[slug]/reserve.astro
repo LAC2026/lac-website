@@ -37,13 +37,18 @@ const { retreat: r } = Astro.props;
         <h2 style="color:var(--forest); margin-bottom:8px; font-size:1.6rem;">{r.name}</h2>
         <p style="color:var(--forest-3); margin-bottom:32px;">{r.fullDates} &middot; {r.groupSize}</p>
 
-        <!--
-          TODO: this form currently only demonstrates the intended flow in the browser.
-          It does not process payment or store submissions anywhere yet — that requires
-          wiring up Stripe Checkout (for the deposit charge) and a place to store the
-          submitted contact info (see project roadmap).
-        -->
-        <form id="reserveForm" class="reserve-form">
+        <div id="reserveCanceled" class="reserve-confirm" hidden style="border-left-color:var(--gold);">
+          <p>Checkout was canceled &mdash; no charge was made. You can try again whenever you're ready.</p>
+        </div>
+
+        <div id="reserveSuccess" class="reserve-confirm" hidden>
+          <p>
+            <strong>You're in!</strong> Your deposit went through and your spot is reserved.
+            A confirmation was sent to your email. We'll be in touch with next steps.
+          </p>
+        </div>
+
+        <form id="reserveForm" class="reserve-form" data-slug={r.slug}>
           <label>
             Full name
             <input type="text" name="name" required />
@@ -77,17 +82,12 @@ const { retreat: r } = Astro.props;
             Anything we should know?
             <textarea name="notes" rows="3"></textarea>
           </label>
-          <button class="btn btn-solid" type="submit">Continue to deposit payment</button>
-        </form>
-
-        <div id="reserveConfirm" class="reserve-confirm" hidden>
-          <p>
-            Thanks! Online deposit payment isn't connected yet &mdash; once Stripe is set up,
-            this is where you'd securely pay your {r.depositFrom} deposit. For now, email
-            <a href="mailto:team@laactivityclub.com">team@laactivityclub.com</a> with your
-            details and we'll hold your spot manually.
+          <button class="btn btn-solid" type="submit" id="reserveSubmitBtn">Continue to deposit payment</button>
+          <p id="reserveError" class="reserve-error" hidden>
+            Something went wrong. Please try again, or email
+            <a href="mailto:team@laactivityclub.com">team@laactivityclub.com</a> directly.
           </p>
-        </div>
+        </form>
       </div>
 
       <div class="reserve-card">
@@ -103,11 +103,57 @@ const { retreat: r } = Astro.props;
 
   <script>
     const form = document.getElementById('reserveForm') as HTMLFormElement | null;
-    const confirmBox = document.getElementById('reserveConfirm');
-    form?.addEventListener('submit', (e) => {
+    const errorBox = document.getElementById('reserveError');
+    const submitBtn = document.getElementById('reserveSubmitBtn') as HTMLButtonElement | null;
+
+    // Show a message if we just got redirected back from Stripe
+    const params = new URLSearchParams(location.search);
+    if (params.get('success') === 'true') {
+      document.getElementById('reserveSuccess')?.removeAttribute('hidden');
+      form?.setAttribute('hidden', 'true');
+    } else if (params.get('canceled') === 'true') {
+      document.getElementById('reserveCanceled')?.removeAttribute('hidden');
+    }
+
+    form?.addEventListener('submit', async (e) => {
       e.preventDefault();
-      form.hidden = true;
-      if (confirmBox) confirmBox.hidden = false;
+      if (errorBox) errorBox.hidden = true;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Redirecting to payment...';
+      }
+
+      const formData = new FormData(form);
+      const payload = {
+        slug: form.dataset.slug,
+        name: formData.get('name'),
+        email: formData.get('email'),
+        phone: formData.get('phone'),
+        gender: formData.get('gender'),
+        spots: formData.get('spots'),
+        notes: formData.get('notes'),
+      };
+
+      try {
+        const res = await fetch('/api/create-checkout-session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const data = await res.json();
+        if (data.url) {
+          window.location.href = data.url;
+        } else {
+          throw new Error(data.error || 'No checkout URL returned');
+        }
+      } catch (err) {
+        console.error(err);
+        if (errorBox) errorBox.hidden = false;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Continue to deposit payment';
+        }
+      }
     });
   </script>
 </Layout>
