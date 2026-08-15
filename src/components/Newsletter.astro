@@ -6,10 +6,7 @@
     <h2>Get our next LA hike in your inbox</h2>
     <p>Trail details, meeting spots, and difficulty levels &mdash; nothing else.</p>
 
-    <!--
-      TODO: wire this up to a real signup endpoint + database once ready (see project roadmap).
-      For now this only demonstrates the intended flow in the browser and doesn't store anything.
-    -->
+    <!-- Saves to the database and emails team@laactivityclub.com on submit. -->
     <form id="newsletterForm" class="newsletter-form">
       <input type="text" name="name" placeholder="Full name" required />
       <input type="email" name="email" placeholder="Email address" required />
@@ -18,13 +15,16 @@
         <input type="text" name="city" placeholder="City" required />
         <input type="text" name="zip" placeholder="ZIP code" inputmode="numeric" pattern="[0-9]*" required />
       </div>
-      <button class="btn btn-solid" type="submit">Join the list</button>
+      <button class="btn btn-solid" type="submit" id="newsletterSubmitBtn">Join the list</button>
+      <p id="newsletterError" class="reserve-error" hidden>
+        Something went wrong. Please try again in a moment.
+      </p>
     </form>
 
     <div id="newsletterConfirm" class="reserve-confirm" hidden style="margin: 0 auto 20px;">
       <p>
-        Thanks for signing up! This isn't connected to a mailing list yet &mdash; once it is,
-        you'll start getting next week's hike details straight to your inbox.
+        Thanks for signing up! You'll start getting next week's hike details straight to
+        your inbox.
       </p>
     </div>
   </div>
@@ -32,10 +32,36 @@
   <script>
     const form = document.getElementById('newsletterForm') as HTMLFormElement | null;
     const confirmBox = document.getElementById('newsletterConfirm');
-    form?.addEventListener('submit', (e) => {
+    const errorBox = document.getElementById('newsletterError');
+    const submitBtn = document.getElementById('newsletterSubmitBtn') as HTMLButtonElement | null;
+
+    form?.addEventListener('submit', async (e) => {
       e.preventDefault();
-      form.hidden = true;
-      if (confirmBox) confirmBox.hidden = false;
+      if (errorBox) errorBox.hidden = true;
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Joining...'; }
+
+      const data = new FormData(form);
+      try {
+        const res = await fetch('/api/signup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            type: 'hike',
+            name: data.get('name'),
+            email: data.get('email'),
+            phone: data.get('phone'),
+            city: data.get('city'),
+            zip: data.get('zip'),
+          }),
+        });
+        if (!res.ok) throw new Error('Signup failed');
+        form.hidden = true;
+        if (confirmBox) confirmBox.hidden = false;
+      } catch (err) {
+        console.error(err);
+        if (errorBox) errorBox.hidden = false;
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Join the list'; }
+      }
     });
   </script>
 </section>

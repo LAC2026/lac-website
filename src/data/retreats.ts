@@ -25,7 +25,7 @@ export interface Retreat {
 }
 
 export const refundPolicy = {
-  summary: 'Full balance due at booking \u2014 no deposit option.',
+  summary: 'Full balance due at booking.',
   tiers: [
     { window: '20+ days before departure', amount: '100% refund' },
     { window: '10\u201319 days before departure', amount: '50% refund' },

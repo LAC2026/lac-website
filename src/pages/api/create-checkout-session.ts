@@ -77,6 +77,7 @@ export const POST: APIRoute = async ({ request, url }) => {
       // for each payment - this is our stand-in for a database until one is set up.
       metadata: {
         retreat: retreat.name,
+        retreat_slug: retreat.slug,
         name,
         phone,
         gender,

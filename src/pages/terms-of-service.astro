@@ -1,0 +1,98 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { refundPolicy } from '../data/retreats';
+
+const lastUpdated = 'August 14, 2026';
+---
+<Layout
+  title="Terms of Service — LA Activity Club"
+  description="The terms that apply to hikes, retreats, and bookings with LA Activity Club."
+>
+  <Header />
+
+  <section class="page-hero" style="height:32vh; min-height:220px;">
+    <div class="photo">
+      <img
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Colors_of_the_Grand_Canyon_(30569973160).jpg?width=1600"
+        alt="Grand Canyon"
+      />
+    </div>
+    <div class="page-hero-content">
+      <div class="breadcrumb"><a href="/">Home</a> / Terms of Service</div>
+      <h1>Terms of Service</h1>
+    </div>
+  </section>
+
+  <section class="legal-page">
+    <p class="legal-updated">Last updated: {lastUpdated}</p>
+
+    <p>
+      These terms apply to anyone who joins a hike, books a retreat, or otherwise uses services
+      offered by LA Activity Club ("LAC"), operated by Next Generation Wellness LLC. By joining a
+      hike or booking a retreat, you agree to these terms.
+    </p>
+
+    <h2>What we offer</h2>
+    <p>
+      LAC organizes free, informal weekly group hikes in and around the Los Angeles area, and
+      paid multi-day active retreats that include lodging, guided activities, and related
+      services as described on each retreat's page.
+    </p>
+
+    <h2>Booking and payment</h2>
+    <ul>
+      <li>Full payment is due at the time of booking a retreat; there is no deposit option.</li>
+      <li>Bookings close, and payments are no longer accepted, within 3 days of a retreat's departure date.</li>
+      <li>Payments are processed securely by Stripe. We do not store your card details.</li>
+    </ul>
+
+    <h2>Refund policy</h2>
+    <ul>
+      {refundPolicy.tiers.map((t) => (
+        <li><strong>{t.amount}</strong> if you cancel {t.window.toLowerCase()}.</li>
+      ))}
+    </ul>
+    <p>{refundPolicy.companyCancellation}</p>
+
+    <h2>Assumption of risk</h2>
+    <p>
+      Hiking and outdoor group activities carry inherent risks, including but not limited to
+      injury from terrain, weather, physical exertion, wildlife, and travel to and from
+      locations. By participating in a hike or retreat, you voluntarily assume these risks. You
+      are responsible for assessing your own fitness and ability to safely participate, and for
+      following the guidance of trip leaders on-site.
+    </p>
+
+    <h2>Limitation of liability</h2>
+    <p>
+      To the fullest extent permitted by law, LAC and Next Generation Wellness LLC are not
+      liable for injury, loss, or damage arising from participation in a hike or retreat, except
+      where caused by our gross negligence or willful misconduct.
+    </p>
+
+    <h2>Conduct</h2>
+    <p>
+      We expect everyone joining a hike or retreat to treat other participants, guides, and
+      property with respect. We reserve the right to remove anyone from a hike or retreat, without
+      refund, whose conduct we reasonably believe endangers others or damages property.
+    </p>
+
+    <h2>Changes</h2>
+    <p>
+      We may update these terms, retreat itineraries, or pricing from time to time. The version
+      posted here at the time of your booking applies to that booking.
+    </p>
+
+    <h2>Governing law</h2>
+    <p>These terms are governed by the laws of the State of California.</p>
+
+    <h2>Contact us</h2>
+    <p>
+      Questions about these terms? Email <a href="mailto:team@laactivityclub.com">team@laactivityclub.com</a>.
+    </p>
+  </section>
+
+  <Footer />
+</Layout>
