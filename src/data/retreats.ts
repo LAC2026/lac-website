@@ -93,7 +93,7 @@ export const retreats: Retreat[] = [
     dates: 'September 18–20 · Private villa',
     fullDates: 'September 18–20, 2026',
     startDate: '2026-09-18',
-    totalFrom: '$500',
+    totalFrom: '$10',
     groupSize: '16+ people',
     image:
       'https://commons.wikimedia.org/wiki/Special:FilePath/Creek_in_old_growth_redwood_forest.jpg?width=700',
