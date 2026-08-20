@@ -33,6 +33,10 @@ export const POST: APIRoute = async ({ request }) => {
     const session = event.data.object as Stripe.Checkout.Session;
     const metadata = session.metadata || {};
 
+    // Save the booking and send the team notification independently of each other -
+    // if one fails (e.g. the database isn't set up yet), it should NOT stop the other
+    // from running. Previously these were in the same try/catch, so a DB error would
+    // silently skip the notification email too.
     try {
       await saveBooking({
         retreatSlug: metadata.retreat_slug || '',
@@ -46,7 +50,13 @@ export const POST: APIRoute = async ({ request }) => {
         amountCents: session.amount_total || 0,
         stripeSessionId: session.id,
       });
+    } catch (err) {
+      // Don't fail the webhook response over a DB hiccup - Stripe will retry otherwise
+      // and we don't want duplicate charges or infinite retries over a non-payment issue.
+      console.error('Error saving booking:', err);
+    }
 
+    try {
       await sendNotificationEmail(
         `New retreat booking: ${metadata.retreat || 'Unknown retreat'}`,
         `
@@ -62,9 +72,7 @@ export const POST: APIRoute = async ({ request }) => {
         `
       );
     } catch (err) {
-      // Don't fail the webhook response over a DB/email hiccup - Stripe will retry otherwise
-      // and we don't want duplicate charges or infinite retries over a non-payment issue.
-      console.error('Error saving booking or sending notification:', err);
+      console.error('Error sending notification email:', err);
     }
   }
 

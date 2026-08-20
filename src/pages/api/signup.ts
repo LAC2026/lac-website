@@ -23,20 +23,31 @@ export const POST: APIRoute = async ({ request }) => {
       });
     }
 
-    await saveSignup({ type, name, email, phone, city, zip });
+    // Save and notify independently - if the database isn't set up yet (or hiccups),
+    // that should NOT stop the team notification email from going out, and it should
+    // NOT show the person signing up an error page over something on our end.
+    try {
+      await saveSignup({ type, name, email, phone, city, zip });
+    } catch (err) {
+      console.error('Error saving signup:', err);
+    }
 
-    await sendNotificationEmail(
-      `New ${type === 'hike' ? 'hike list' : 'community'} signup: ${name}`,
-      `
-        <h2>New signup</h2>
-        <p><strong>List:</strong> ${type === 'hike' ? 'Hike updates (from Hikes page)' : 'General community (from homepage)'}</p>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone || '\u2014'}</p>
-        <p><strong>City:</strong> ${city || '\u2014'}</p>
-        <p><strong>ZIP:</strong> ${zip || '\u2014'}</p>
-      `
-    );
+    try {
+      await sendNotificationEmail(
+        `New ${type === 'hike' ? 'hike list' : 'community'} signup: ${name}`,
+        `
+          <h2>New signup</h2>
+          <p><strong>List:</strong> ${type === 'hike' ? 'Hike updates (from Hikes page)' : 'General community (from homepage)'}</p>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Phone:</strong> ${phone || '\u2014'}</p>
+          <p><strong>City:</strong> ${city || '\u2014'}</p>
+          <p><strong>ZIP:</strong> ${zip || '\u2014'}</p>
+        `
+      );
+    } catch (err) {
+      console.error('Error sending notification email:', err);
+    }
 
     return new Response(JSON.stringify({ ok: true }), {
       status: 200,
