@@ -39,51 +39,52 @@ export const refundPolicy = {
 
 export const retreats: Retreat[] = [
   {
-    slug: 'tahoe',
-    name: 'Lake Tahoe & Eastern Sierra',
-    location: 'California',
-    dates: 'August 7–9 · Private villa',
-    fullDates: 'August 7–9, 2026',
-    startDate: '2026-08-07',
+    slug: 'zion',
+    name: 'Zion National Park',
+    location: 'Utah',
+    dates: 'September 4–6 · Private villa',
+    fullDates: 'September 4–6, 2026',
+    startDate: '2026-09-04',
     totalFrom: '$500',
     groupSize: '14+ people',
-    image: '/images/tahoe-lake.png',
-    imageAlt: 'Lake Tahoe\u2019s turquoise water and the Eastern Sierra',
-    heroImage: '/images/tahoe-lake.png',
-    heroImageAlt: 'Lake Tahoe\u2019s turquoise water and the Eastern Sierra',
-    summary: 'Alpine lakes, waterfalls, and hot springs in the Eastern Sierra, with Lake Tahoe\u2019s famously clear water as the grand finale.',
+    image: '/images/zion-canyon.png',
+    imageAlt: 'Sunset over the canyon walls of Zion National Park',
+    heroImage: '/images/zion-canyon.png',
+    heroImageAlt: 'Sunset over the canyon walls of Zion National Park',
+    summary:
+      "A weekend chasing one of the country's most iconic hikes — The Narrows — from a private villa with a rooftop, game rooms, and a jacuzzi.",
     description:
-      "Some of the most beautiful scenery in California, packed into three days: a hike through the Eastern Sierra past alpine lakes and waterfalls, a soak in a natural hot spring, and a swim in Lake Tahoe's impossibly clear water. Home base is a luxury villa with a hot tub and sauna, and views gorgeous enough that you may not want to leave the porch.",
+      "Zion National Park is home to The Narrows, one of the most iconic hikes in the country, where the trail becomes the river itself as it winds between towering canyon walls. We stay at a private villa built for the group, with a rooftop, game rooms, a jacuzzi, and plenty of shared space to relax between adventures.",
     included: [
-      'Villa accommodation, 2 nights, hot tub & sauna',
+      'Villa accommodation, 2 nights, jacuzzi, rooftop & game rooms',
       'Round-trip transportation from LA',
       'Professional massage session',
-      'BBQ party & an evening sound healing session',
-      'The full daily program \u2014 hikes, hot springs, swimming, and more',
+      'BBQ & an evening Sound Healing session',
+      'The full daily program — The Narrows hike, swimming, and more',
     ],
     itinerary: [
       {
         day: 'Day 1',
         title: 'Check-in',
         description:
-          'Arrive and settle into the villa. Activities on-site, hot tub, sauna, a professional massage session, BBQ and a party to kick things off.',
+          'Arrive and settle into the villa. Activities on the grounds and by the pool, jacuzzi, a BBQ, a professional massage session, and a party to kick things off.',
       },
       {
         day: 'Day 2',
-        title: 'Eastern Sierra hike',
+        title: 'The Narrows',
         description:
-          'A hike through some of the most picturesque mountains in the Eastern Sierra, past alpine lakes. Back at the villa: a professional massage session, hot tub, sauna, BBQ, and an evening sound healing session.',
+          'A hike through the picturesque canyon along the Narrows river. Back at the villa: activities on the grounds and by the pool, jacuzzi, a professional massage session, BBQ, and an evening Sound Healing session.',
       },
       {
         day: 'Day 3',
-        title: 'Lake Tahoe & hot springs',
+        title: 'Lake day & departure',
         description:
-          'Swimming and water activities on Lake Tahoe, a stop at a geological hot spring site, then we head home.',
+          "A professional massage session, swimming and water activities at the lake, and a stop at some of the area's most significant sites before we head home.",
       },
     ],
     gallery: [
-      { image: '/images/tahoe-lake.png', alt: 'Lake Tahoe\u2019s turquoise water and the Eastern Sierra' },
-      { image: '/images/tahoe-villa-deck.png', alt: 'Villa deck at sunset, Eastern Sierra' },
+      { image: '/images/zion-canyon.png', alt: 'Sunset over the canyon walls of Zion National Park' },
+      { image: '/images/zion-villa.png', alt: 'Villa living room and game area with desert views' },
     ],
   },
   {
@@ -93,7 +94,7 @@ export const retreats: Retreat[] = [
     dates: 'September 18–20 · Private villa',
     fullDates: 'September 18–20, 2026',
     startDate: '2026-09-18',
-    totalFrom: '$1',
+    totalFrom: '$500',
     groupSize: '16+ people',
     image:
       'https://commons.wikimedia.org/wiki/Special:FilePath/Creek_in_old_growth_redwood_forest.jpg?width=700',
@@ -192,6 +193,7 @@ export const pastTripsHistory: PastTripsYear[] = [
       'Zion & The Narrows',
       'Mt. Shasta',
       'Hawaii \u2014 Maui',
+      'Lake Tahoe & Eastern Sierra',
     ],
   },
   {
