@@ -1,13 +1,29 @@
 ---
+// Coordinates below are real lat/lng projected onto the embedded map's fixed
+// center + zoom using standard Web Mercator math, so pins line up with the
+// actual geography shown in the map image behind them.
+// x/y = position on the desktop (16:9) map at zoom 10.
+// mx/my = position on the mobile (3:4) map at zoom 8.7 — mobile uses a
+// separate, less-zoomed-in embed (see MAP_ZOOM_MOBILE below) so the whole
+// area still fits a narrower screen; both are real lat/lng projected with
+// Web Mercator math onto their respective embed's center + zoom.
+// Mobile my values are staggered into an even diagonal staircase (rather than
+// their raw projected latitude) so labels never sit at the same height as a
+// horizontal neighbor — real geography roughly runs SW-coastal to NE-mountains
+// anyway, so this reads naturally as a diagonal sweep across the map.
 const locations = [
-  { name: 'Malibu', x: 8, y: 42, note: 'Coastal bluffs & creek trails' },
-  { name: 'Topanga', x: 19, y: 30, note: 'Canyon trails & ocean overlooks' },
-  { name: 'Pacific Palisades', x: 27, y: 50, note: 'Cliffside views over the PCH' },
-  { name: 'San Fernando Valley', x: 44, y: 18, note: 'Wide valley trails, close to the city' },
-  { name: 'Hollywood Mountains', x: 55, y: 24, note: 'City views & the Observatory' },
-  { name: 'Pasadena', x: 81, y: 13, note: 'Eaton Canyon waterfalls' },
-  { name: 'San Gabriel Mountains', x: 88, y: 9, note: 'High-elevation trails above the city' },
+  { name: 'Malibu', x: 17, y: 69.8, mx: 15, my: 90, note: 'Coastal bluffs & creek trails', side: 'right' },
+  { name: 'Topanga', x: 33.7, y: 56.2, mx: 32.7, my: 76.7, note: 'Canyon trails & ocean overlooks', side: 'right' },
+  { name: 'Pacific Palisades', x: 40.5, y: 65.4, mx: 40, my: 63.3, note: 'Cliffside views over the PCH', side: 'right' },
+  { name: 'San Fernando Valley', x: 47.8, y: 37.7, mx: 47.6, my: 50, note: 'Wide valley trails, close to the city', side: 'right' },
+  { name: 'Hollywood Mountains', x: 61.5, y: 51.4, mx: 62.2, my: 36.7, note: 'City views & the Observatory', side: 'left' },
+  { name: 'Pasadena', x: 76, y: 45.5, mx: 77.6, my: 23.3, note: 'Eaton Canyon waterfalls', side: 'right' },
+  { name: 'San Gabriel Mountains', x: 83, y: 30.2, mx: 85, my: 10, note: 'High-elevation trails above the city', side: 'left' },
 ];
+
+const MAP_CENTER = '34.1253,-118.4245';
+const MAP_ZOOM = 10;
+const MAP_ZOOM_MOBILE = 8.7;
 ---
 <section class="la-map-section" style="padding-top:20px;">
   <div class="retreats-page-head">
@@ -17,26 +33,26 @@ const locations = [
   </div>
 
   <div class="la-map-wrap">
-    <svg class="la-map-lines" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- stylized SoCal coastline: Malibu -> Santa Monica Bay -> South Bay/Palos Verdes -->
-      <path
-        d="M3,36 C9,38 15,40 23,44 C33,50 39,56 43,64 C46,72 49,80 53,90"
-        fill="none"
-        stroke="var(--tiffany)"
-        stroke-width="0.5"
-        stroke-dasharray="1.4 1.8"
-        opacity="0.6"
-      />
-    </svg>
-
-    <div class="la-map-ocean-label" style="left:11%; top:64%;">PACIFIC OCEAN</div>
+    <iframe
+      class="la-map-frame la-map-frame--desktop"
+      src={`https://maps.google.com/maps?ll=${MAP_CENTER}&z=${MAP_ZOOM}&output=embed`}
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Map of the LA-area hiking regions LA Activity Club visits"
+    ></iframe>
+    <iframe
+      class="la-map-frame la-map-frame--mobile"
+      src={`https://maps.google.com/maps?ll=${MAP_CENTER}&z=${MAP_ZOOM_MOBILE}&output=embed`}
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Map of the LA-area hiking regions LA Activity Club visits"
+    ></iframe>
 
     {locations.map((loc) => (
-      <div class="la-pin" style={`left:${loc.x}%; top:${loc.y}%;`}>
+      <div class={`la-pin${loc.side === 'left' ? ' la-pin--left' : ''}`} style={`--x-left:${loc.x}%; --y-top:${loc.y}%; --mx-left:${loc.mx ?? loc.x}%; --my-top:${loc.my ?? loc.y}%;`}>
         <span class="la-pin-dot"></span>
         <div class="la-pin-label">
           <span class="la-pin-name">{loc.name}</span>
-          <span class="la-pin-note">{loc.note}</span>
         </div>
       </div>
     ))}

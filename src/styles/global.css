@@ -555,10 +555,18 @@ section.retreat-full-section:first-of-type{ border-top:none; }
   border-radius: 2px;
   overflow: hidden;
 }
-.la-map-lines{ position:absolute; inset:0; width:100%; height:100%; }
+.la-map-frame{
+  position:absolute; inset:0; width:100%; height:100%; border:0;
+  pointer-events:none; filter:saturate(0.85) contrast(1.02);
+}
+.la-map-frame--mobile{ display:none; }
 .la-pin{
-  position:absolute; transform: translate(-50%,-50%);
+  position:absolute; left: var(--x-left); top: var(--y-top); transform: translateY(-50%);
   display:flex; align-items:center; gap:10px;
+}
+.la-pin--left{
+  transform: translate(-100%,-50%);
+  flex-direction: row-reverse;
 }
 .la-pin-dot{
   width:12px; height:12px; border-radius:50%; flex-shrink:0;
@@ -566,22 +574,19 @@ section.retreat-full-section:first-of-type{ border-top:none; }
   box-shadow: 0 1px 5px rgba(20,32,25,0.25);
 }
 .la-pin-label{
-  background: var(--sand); padding:7px 14px; border-radius:2px;
+  background: var(--sand); padding:5px 12px; border-radius:2px;
   box-shadow: 0 3px 14px rgba(20,32,25,0.12);
   display:flex; flex-direction:column; white-space:nowrap;
 }
-.la-pin-name{ font-family: var(--serif); font-size:0.92rem; color: var(--forest); font-weight:500; line-height:1.25; }
-.la-pin-note{ font-family: var(--mono); font-size:0.64rem; color: var(--forest-3); opacity:0.8; }
-.la-map-ocean-label{
-  position:absolute; transform: translate(-50%,-50%);
-  font-family: var(--mono); font-size:0.68rem; letter-spacing:0.1em;
-  color: var(--tiffany); opacity:0.7;
-}
-@media (max-width:700px){ .la-map-ocean-label{ display:none; } }
-@media (max-width:700px){
-  .la-pin-note{ display:none; }
-  .la-pin-name{ font-size:0.74rem; }
-  .la-pin-label{ padding:5px 9px; }
+.la-pin-name{ font-family: var(--serif); font-size:0.82rem; color: var(--forest); font-weight:500; line-height:1.2; }
+@media (max-width:860px){
+  .la-map-wrap{ aspect-ratio: 3 / 4; }
+  .la-map-frame--desktop{ display:none; }
+  .la-map-frame--mobile{ display:block; }
+  .la-pin-name{ font-size:0.7rem; }
+  .la-pin-label{ padding:4px 8px; }
+  .la-pin-dot{ width:9px; height:9px; }
+  .la-pin{ left: var(--mx-left); top: var(--my-top); gap:6px; }
 }
 
 /* ---------- hikes page: connect cards ---------- */
