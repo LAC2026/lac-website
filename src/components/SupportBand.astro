@@ -1,0 +1,28 @@
+---
+---
+<section class="support-band">
+  <div class="support-inner reveal">
+    <div class="eyebrow" style="justify-content:center;">Hikes are always free</div>
+    <h2>Support our community</h2>
+    <p>
+      If a trail meant something to you, you're always welcome to support what we do &mdash;
+      no pressure, ever.
+    </p>
+    <!-- TODO: wire this up to Stripe once set up (see project roadmap). -->
+    <button id="supportBtn" class="btn btn-solid" type="button">Support us</button>
+    <p id="supportNote" class="support-note" hidden>
+      Online support isn't connected yet &mdash; email
+      <a href="mailto:team@laactivityclub.com">team@laactivityclub.com</a> if you'd like to send
+      something directly. Thank you!
+    </p>
+  </div>
+
+  <script>
+    const btn = document.getElementById('supportBtn');
+    const note = document.getElementById('supportNote');
+    btn?.addEventListener('click', () => {
+      if (note) note.hidden = false;
+      btn?.setAttribute('hidden', 'true');
+    });
+  </script>
+</section>

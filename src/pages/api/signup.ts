@@ -2,7 +2,7 @@ export const prerender = false;
 
 import type { APIRoute } from 'astro';
 import { saveSignup } from '../../lib/db';
-import { sendNotificationEmail } from '../../lib/email';
+import { sendNotificationEmail, sendHikeSignupAcknowledgementEmail } from '../../lib/email';
 
 export const POST: APIRoute = async ({ request }) => {
   try {
@@ -47,6 +47,15 @@ export const POST: APIRoute = async ({ request }) => {
       );
     } catch (err) {
       console.error('Error sending notification email:', err);
+    }
+
+    // For hike-list signups, also send the person themselves an acknowledgement.
+    if (type === 'hike') {
+      try {
+        await sendHikeSignupAcknowledgementEmail(email, name);
+      } catch (err) {
+        console.error('Error sending signup acknowledgement email:', err);
+      }
     }
 
     return new Response(JSON.stringify({ ok: true }), {

@@ -154,6 +154,47 @@ nav.links a:hover::after{ width:100%; }
   .logo svg{ width:22px; height:22px; }
 }
 
+/* ---------- mobile nav ---------- */
+.nav-toggle{
+  display:none; flex-direction:column; justify-content:center; align-items:flex-end; gap:5px;
+  width:32px; height:28px; background:none; border:none; cursor:pointer; padding:0; z-index:60;
+}
+.nav-toggle span{
+  display:block; width:100%; height:2px; background: var(--sand);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  transition: transform .3s ease, opacity .3s ease, width .3s ease;
+}
+.nav-toggle.active span:nth-child(1){ width:100%; transform: translateY(7px) rotate(45deg); }
+.nav-toggle.active span:nth-child(2){ opacity:0; }
+.nav-toggle.active span:nth-child(3){ width:100%; transform: translateY(-7px) rotate(-45deg); }
+@media (max-width: 900px){ .nav-toggle{ display:flex; } }
+
+.mobile-nav{
+  position:fixed; inset:0 0 auto 0;
+  background: var(--forest);
+  padding: 100px 28px 40px;
+  display:flex; flex-direction:column;
+  transform: translateY(-100%);
+  transition: transform .35s ease;
+  z-index:45;
+  max-height:100vh; overflow-y:auto;
+}
+.mobile-nav.open{ transform: translateY(0); }
+.mobile-nav a{
+  font-family: var(--sans); font-size:1.1rem; color: var(--sand);
+  padding: 16px 0; border-bottom: 1px solid rgba(246,242,233,0.14);
+  letter-spacing:0.01em;
+}
+.mobile-nav-group{ display:flex; flex-direction:column; }
+.mobile-nav-group a{ border-bottom:none; }
+.mobile-nav-group a.mobile-nav-sub{
+  font-size:0.92rem; color: var(--sand-2); padding:0 0 16px 14px;
+  border-bottom: 1px solid rgba(246,242,233,0.14);
+}
+body.nav-open{ overflow:hidden; }
+body.nav-open header{ background: rgba(15,42,34,0.95); }
+@media (min-width: 901px){ .mobile-nav{ display:none; } }
+
 /* Retreats dropdown */
 .nav-dropdown{ position:relative; }
 .nav-dropdown > a{ display:flex; align-items:center; gap:5px; }
@@ -301,19 +342,19 @@ section{ position:relative; padding: 120px 64px; }
 .newsletter-form button{ margin-top:6px; }
 .newsletter .reserve-confirm{ background: var(--sand); text-align:left; }
 
-/* ---------- donation band ---------- */
-.donation-band{
+/* ---------- support band ---------- */
+.support-band{
   background: rgba(79,184,172,0.08);
   border-top: 1px solid rgba(79,184,172,0.22);
   border-bottom: 1px solid rgba(79,184,172,0.22);
   padding: 68px 24px;
   text-align: center;
 }
-.donation-inner{ max-width: 520px; margin: 0 auto; }
-.donation-band h2{ font-size: clamp(1.6rem,2.8vw,2.1rem); color: var(--forest); margin: 10px 0 16px; }
-.donation-band p{ color: var(--forest-3); margin-bottom: 28px; line-height:1.6; }
-.donation-note{ margin-top: 22px; font-size:0.88rem; color: var(--forest-3); }
-.donation-note a{ color: var(--forest); text-decoration: underline; text-underline-offset:3px; }
+.support-inner{ max-width: 520px; margin: 0 auto; }
+.support-band h2{ font-size: clamp(1.6rem,2.8vw,2.1rem); color: var(--forest); margin: 10px 0 16px; }
+.support-band p{ color: var(--forest-3); margin-bottom: 28px; line-height:1.6; }
+.support-note{ margin-top: 22px; font-size:0.88rem; color: var(--forest-3); }
+.support-note a{ color: var(--forest); text-decoration: underline; text-underline-offset:3px; }
 
 /* ---------- footer ---------- */
 footer{ background: var(--forest); color: var(--sand-2); padding: 72px 64px 32px; }
