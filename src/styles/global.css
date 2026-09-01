@@ -245,7 +245,9 @@ section{ position:relative; padding: 120px 64px; }
   font-family: var(--serif); font-style: italic; font-weight:400;
   font-size: clamp(1.4rem, 2.6vw, 2rem);
   line-height:1.5; color: var(--forest);
+  margin-bottom:20px;
 }
+.intro p:last-child{ margin-bottom:0; }
 
 /* ---------- retreats strip ---------- */
 .retreats{ background: var(--forest); color:var(--sand); }

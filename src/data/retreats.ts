@@ -83,8 +83,11 @@ export const retreats: Retreat[] = [
       },
     ],
     gallery: [
-      { image: '/images/zion-canyon.png', alt: 'Sunset over the canyon walls of Zion National Park' },
-      { image: '/images/zion-villa.png', alt: 'Villa living room and game area with desert views' },
+      { image: '/images/zion-narrows-sunset.jpg', alt: 'Sunset light over the canyon at Observation Point, Zion' },
+      { image: '/images/zion-narrows-glow.jpg', alt: 'Golden canyon light inside The Narrows' },
+      { image: '/images/zion-narrows-water.jpg', alt: 'Wading through the river inside The Narrows' },
+      { image: '/images/zion-lake-day.jpg', alt: 'Cliff jumping and swimming on lake day' },
+      { image: '/images/zion-villa-living.jpg', alt: 'Villa living room and game area with desert views' },
     ],
   },
   {
@@ -96,12 +99,10 @@ export const retreats: Retreat[] = [
     startDate: '2026-09-18',
     totalFrom: '$500',
     groupSize: '16+ people',
-    image:
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Creek_in_old_growth_redwood_forest.jpg?width=700',
-    imageAlt: 'Creek in an old-growth redwood forest',
-    heroImage:
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Creek_in_old_growth_redwood_forest.jpg?width=1800',
-    heroImageAlt: 'Creek in an old-growth redwood forest',
+    image: '/images/redwood-coast-header.jpg',
+    imageAlt: 'Aerial view of the dramatic Northern California coastline near Redwood National Park',
+    heroImage: '/images/redwood-coast-header.jpg',
+    heroImageAlt: 'Aerial view of the dramatic Northern California coastline near Redwood National Park',
     summary: 'Three days under the tallest trees on Earth, with a stop in the otherworldly Fern Canyon and the Northern California coast.',
     description:
       "Redwood National Park is genuinely otherworldly: giant, ancient trees along the Pacific coast, the moss-draped walls of Fern Canyon, and some of the most dramatic coastline in Northern California. We stay in a huge private villa deep in the conifer forest, with a hot tub, a big private plot, and plenty of room to spread out.",
@@ -133,15 +134,11 @@ export const retreats: Retreat[] = [
       },
     ],
     gallery: [
-      {
-        image:
-          'https://commons.wikimedia.org/wiki/Special:FilePath/Fern_Canyon_in_Redwood_National_Park,_California_with_tree_upside_down..jpg?width=900',
-        alt: 'Fern Canyon in Redwood National Park',
-      },
-      {
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Hidden_Beach_in_Redwood_National_Park,_California.jpg?width=900',
-        alt: 'Hidden Beach in Redwood National Park',
-      },
+      { image: '/images/redwood-fern-canyon.jpg', alt: 'The moss-and-fern-draped walls of Fern Canyon' },
+      { image: '/images/redwood-fern-walkway.jpg', alt: 'Boardwalk crossing the creek through Fern Canyon' },
+      { image: '/images/redwood-forest-rays.jpg', alt: 'Sunlight streaming through the old-growth redwoods' },
+      { image: '/images/redwood-coastal-cove.jpg', alt: 'A quiet cove along the Northern California coast' },
+      { image: '/images/redwood-villa-living.jpg', alt: 'Villa living room and dining area' },
     ],
   },
 ];
