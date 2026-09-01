@@ -99,10 +99,10 @@ export const retreats: Retreat[] = [
     startDate: '2026-09-18',
     totalFrom: '$500',
     groupSize: '16+ people',
-    image: '/images/redwood-coast-header.jpg',
-    imageAlt: 'Aerial view of the dramatic Northern California coastline near Redwood National Park',
-    heroImage: '/images/redwood-coast-header.jpg',
-    heroImageAlt: 'Aerial view of the dramatic Northern California coastline near Redwood National Park',
+    image: '/images/redwood-fern-canyon-header.jpg',
+    imageAlt: 'Sunlit walls of ferns towering over the trail through Fern Canyon',
+    heroImage: '/images/redwood-fern-canyon-header.jpg',
+    heroImageAlt: 'Sunlit walls of ferns towering over the trail through Fern Canyon',
     summary: 'Three days under the tallest trees on Earth, with a stop in the otherworldly Fern Canyon and the Northern California coast.',
     description:
       "Redwood National Park is genuinely otherworldly: giant, ancient trees along the Pacific coast, the moss-draped walls of Fern Canyon, and some of the most dramatic coastline in Northern California. We stay in a huge private villa deep in the conifer forest, with a hot tub, a big private plot, and plenty of room to spread out.",
@@ -139,6 +139,7 @@ export const retreats: Retreat[] = [
       { image: '/images/redwood-forest-rays.jpg', alt: 'Sunlight streaming through the old-growth redwoods' },
       { image: '/images/redwood-coastal-cove.jpg', alt: 'A quiet cove along the Northern California coast' },
       { image: '/images/redwood-villa-living.jpg', alt: 'Villa living room and dining area' },
+      { image: '/images/redwood-coastal-view.jpg', alt: 'Elevated view of the coastline and lagoon near Redwood National Park' },
     ],
   },
 ];
