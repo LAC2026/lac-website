@@ -429,6 +429,7 @@ footer{ background: var(--forest); color: var(--sand-2); padding: 72px 64px 32px
 .retreat-detail-top{ display:grid; grid-template-columns: 1.4fr 1fr; gap:56px; align-items:start; }
 @media (max-width:900px){ .retreat-detail-top{ grid-template-columns:1fr; } }
 .retreat-detail-top h2{ font-size: clamp(1.6rem,2.6vw,2.1rem); margin-bottom:18px; color: var(--forest); }
+.retreat-detail-top h3{ font-size: clamp(1.15rem,2vw,1.4rem); line-height:1.4; margin-bottom:18px; color: var(--forest); }
 .retreat-detail-top p.desc{ color: var(--forest-3); line-height:1.7; margin-bottom:8px; }
 
 .reserve-card{
