@@ -39,58 +39,6 @@ export const refundPolicy = {
 
 export const retreats: Retreat[] = [
   {
-    slug: 'zion',
-    name: 'Zion National Park',
-    location: 'Utah',
-    dates: 'September 4–6 · Private villa',
-    fullDates: 'September 4–6, 2026',
-    startDate: '2026-09-04',
-    totalFrom: '$500',
-    groupSize: '14+ people',
-    image: '/images/zion-canyon.png',
-    imageAlt: 'Sunset over the canyon walls of Zion National Park',
-    heroImage: '/images/zion-canyon.png',
-    heroImageAlt: 'Sunset over the canyon walls of Zion National Park',
-    summary:
-      "A weekend chasing one of the country's most iconic hikes — The Narrows — from a private villa with a rooftop, game rooms, and a jacuzzi.",
-    description:
-      "Zion National Park is home to The Narrows, one of the most iconic hikes in the country, where the trail becomes the river itself as it winds between towering canyon walls. We stay at a private villa built for the group, with a rooftop, game rooms, a jacuzzi, and plenty of shared space to relax between adventures.",
-    included: [
-      'Villa accommodation, 2 nights, jacuzzi, rooftop & game rooms',
-      'Round-trip transportation from LA',
-      'Professional massage session',
-      'BBQ & an evening Sound Healing session',
-      'The full daily program — The Narrows hike, swimming, and more',
-    ],
-    itinerary: [
-      {
-        day: 'Day 1',
-        title: 'Check-in',
-        description:
-          'Arrive and settle into the villa. Activities on the grounds and by the pool, jacuzzi, a BBQ, a professional massage session, and a party to kick things off.',
-      },
-      {
-        day: 'Day 2',
-        title: 'The Narrows',
-        description:
-          'A hike through the picturesque canyon along the Narrows river. Back at the villa: activities on the grounds and by the pool, jacuzzi, a professional massage session, BBQ, and an evening Sound Healing session.',
-      },
-      {
-        day: 'Day 3',
-        title: 'Lake day & departure',
-        description:
-          "A professional massage session, swimming and water activities at the lake, and a stop at some of the area's most significant sites before we head home.",
-      },
-    ],
-    gallery: [
-      { image: '/images/zion-narrows-sunset.jpg', alt: 'Sunset light over the canyon at Observation Point, Zion' },
-      { image: '/images/zion-narrows-glow.jpg', alt: 'Golden canyon light inside The Narrows' },
-      { image: '/images/zion-narrows-water.jpg', alt: 'Wading through the river inside The Narrows' },
-      { image: '/images/zion-lake-day.jpg', alt: 'Cliff jumping and swimming on lake day' },
-      { image: '/images/zion-villa-living.jpg', alt: 'Villa living room and game area with desert views' },
-    ],
-  },
-  {
     slug: 'redwood',
     name: 'Redwood National Park',
     location: 'California',
