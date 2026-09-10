@@ -90,6 +90,59 @@ export const retreats: Retreat[] = [
       { image: '/images/redwood-coastal-view.jpg', alt: 'Elevated view of the coastline and lagoon near Redwood National Park' },
     ],
   },
+  {
+    slug: 'bryce-canyon',
+    name: 'Bryce Canyon National Park',
+    location: 'Utah',
+    dates: 'October 2–4 · Private villa',
+    fullDates: 'October 2–4, 2026',
+    startDate: '2026-10-02',
+    totalFrom: '$500',
+    groupSize: '16+ people',
+    image: '/images/bryce-hoodoos-sunrise-header.jpg',
+    imageAlt: 'Sunrise over the hoodoos of Bryce Canyon National Park',
+    heroImage: '/images/bryce-hoodoos-sunrise-header.jpg',
+    heroImageAlt: 'Sunrise over the hoodoos of Bryce Canyon National Park',
+    summary:
+      "Three days chasing epic hikes through Bryce Canyon's otherworldly hoodoos, from a luxury villa with a home theater, spa, and hot tub.",
+    description:
+      "Bryce Canyon National Park is home to the largest collection of hoodoos on Earth — otherworldly rock spires that glow fire-orange at sunrise. We stay in a luxury villa with a home theater, a huge private plot, a spa, and a hot tub, with plenty of room to relax between adventures.",
+    included: [
+      'Villa accommodation, 2 nights, home cinema, spa & hot tub',
+      'Round-trip transportation from LA (gas not included)',
+      'Professional massage session',
+      'BBQ, a DJ party, & an evening sound healing session',
+      'The full daily program — hikes, sightseeing, and more',
+    ],
+    itinerary: [
+      {
+        day: 'Day 1',
+        title: 'Check-in',
+        description:
+          'Arrive and settle into the villa. Activities on-site, hot tub, spa, a BBQ, a professional massage, and a party with a DJ to kick things off.',
+      },
+      {
+        day: 'Day 2',
+        title: 'Hike with epic views',
+        description:
+          "A hike through Bryce Canyon with some of the most epic views in the park. Back at the villa: hot tub, spa, more activities, a professional massage, and an evening sound healing session.",
+      },
+      {
+        day: 'Day 3',
+        title: 'Scenic Bryce Canyon & departure',
+        description:
+          "A professional massage session and a visit to some of Bryce Canyon's most scenic spots before we head home.",
+      },
+    ],
+    gallery: [
+      { image: '/images/bryce-hoodoos-aerial.jpg', alt: 'Wide aerial view of the hoodoos of Bryce Canyon' },
+      { image: '/images/bryce-hoodoos-closeup.jpg', alt: 'Close-up of the fire-orange hoodoo spires' },
+      { image: '/images/bryce-lake-fall-colors.jpg', alt: 'A scenic lake surrounded by fall colors near Bryce Canyon' },
+      { image: '/images/bryce-villa-exterior.jpg', alt: 'Aerial view of the private villa with red rock mountains behind it' },
+      { image: '/images/bryce-villa-deck-sunset.jpg', alt: 'Villa deck at sunset with mountain views' },
+      { image: '/images/bryce-villa-living.jpg', alt: 'Villa kitchen, dining, and living area' },
+    ],
+  },
 ];
 
 export const igPhotos = [
