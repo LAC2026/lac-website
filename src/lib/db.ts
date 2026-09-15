@@ -26,6 +26,7 @@ async function ensureTables() {
       name TEXT NOT NULL,
       email TEXT NOT NULL,
       phone TEXT,
+      instagram TEXT,
       gender TEXT,
       spots INTEGER,
       notes TEXT,
@@ -60,6 +61,7 @@ export interface BookingRecord {
   name: string;
   email: string;
   phone?: string;
+  instagram?: string;
   gender?: string;
   spots?: number;
   notes?: string;
@@ -72,8 +74,8 @@ export async function saveBooking(data: BookingRecord) {
   // ON CONFLICT DO NOTHING: Stripe can retry the same webhook event more than once,
   // so this stops the same booking getting saved twice.
   await sql`
-    INSERT INTO bookings (retreat_slug, retreat_name, name, email, phone, gender, spots, notes, amount_cents, stripe_session_id)
-    VALUES (${data.retreatSlug}, ${data.retreatName}, ${data.name}, ${data.email}, ${data.phone || ''}, ${data.gender || ''}, ${data.spots || 1}, ${data.notes || ''}, ${data.amountCents || 0}, ${data.stripeSessionId})
+    INSERT INTO bookings (retreat_slug, retreat_name, name, email, phone, instagram, gender, spots, notes, amount_cents, stripe_session_id)
+    VALUES (${data.retreatSlug}, ${data.retreatName}, ${data.name}, ${data.email}, ${data.phone || ''}, ${data.instagram || ''}, ${data.gender || ''}, ${data.spots || 1}, ${data.notes || ''}, ${data.amountCents || 0}, ${data.stripeSessionId})
     ON CONFLICT (stripe_session_id) DO NOTHING;
   `;
 }

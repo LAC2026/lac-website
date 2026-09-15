@@ -21,11 +21,12 @@ export const POST: APIRoute = async ({ request, url }) => {
     const stripe = new Stripe(secretKey);
 
     const body = await request.json();
-    const { slug, name, email, phone, gender, spots, notes } = body as {
+    const { slug, name, email, phone, instagram, gender, spots, notes } = body as {
       slug: string;
       name: string;
       email: string;
       phone: string;
+      instagram?: string;
       gender: string;
       spots: string;
       notes?: string;
@@ -80,6 +81,7 @@ export const POST: APIRoute = async ({ request, url }) => {
         retreat_slug: retreat.slug,
         name,
         phone,
+        instagram: instagram || '',
         gender,
         spots: String(spotsCount),
         notes: notes || '',

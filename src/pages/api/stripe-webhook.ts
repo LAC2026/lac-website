@@ -44,6 +44,7 @@ export const POST: APIRoute = async ({ request }) => {
         name: metadata.name || '',
         email: session.customer_details?.email || session.customer_email || '',
         phone: metadata.phone,
+        instagram: metadata.instagram,
         gender: metadata.gender,
         spots: metadata.spots ? parseInt(metadata.spots, 10) : 1,
         notes: metadata.notes,
@@ -65,6 +66,7 @@ export const POST: APIRoute = async ({ request }) => {
           <p><strong>Name:</strong> ${metadata.name || '\u2014'}</p>
           <p><strong>Email:</strong> ${session.customer_details?.email || session.customer_email || '\u2014'}</p>
           <p><strong>Phone:</strong> ${metadata.phone || '\u2014'}</p>
+          <p><strong>Instagram:</strong> ${metadata.instagram || '\u2014'}</p>
           <p><strong>Gender:</strong> ${metadata.gender || '\u2014'}</p>
           <p><strong>Spots:</strong> ${metadata.spots || '1'}</p>
           <p><strong>Notes:</strong> ${metadata.notes || '\u2014'}</p>

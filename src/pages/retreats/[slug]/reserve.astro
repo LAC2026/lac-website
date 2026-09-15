@@ -63,6 +63,10 @@ const { retreat: r } = Astro.props;
             <input type="tel" name="phone" required />
           </label>
           <label>
+            Instagram <span style="font-weight:400; opacity:0.7;">(optional)</span>
+            <input type="text" name="instagram" placeholder="@yourhandle" />
+          </label>
+          <label>
             Gender <span style="font-weight:400; opacity:0.7;">(for accommodation planning)</span>
             <select name="gender" required>
               <option value="" disabled selected>Select one</option>
@@ -150,6 +154,7 @@ const { retreat: r } = Astro.props;
         name: formData.get('name'),
         email: formData.get('email'),
         phone: formData.get('phone'),
+        instagram: formData.get('instagram'),
         gender: formData.get('gender'),
         spots: formData.get('spots'),
         notes: formData.get('notes'),
