@@ -39,58 +39,6 @@ export const refundPolicy = {
 
 export const retreats: Retreat[] = [
   {
-    slug: 'redwood',
-    name: 'Redwood National Park',
-    location: 'California',
-    dates: 'September 18–20 · Private villa',
-    fullDates: 'September 18–20, 2026',
-    startDate: '2026-09-18',
-    totalFrom: '$500',
-    groupSize: '16+ people',
-    image: '/images/redwood-fern-canyon-header.jpg',
-    imageAlt: 'Sunlit walls of ferns towering over the trail through Fern Canyon',
-    heroImage: '/images/redwood-fern-canyon-header.jpg',
-    heroImageAlt: 'Sunlit walls of ferns towering over the trail through Fern Canyon',
-    summary: 'Three days under the tallest trees on Earth, with a stop in the otherworldly Fern Canyon and the Northern California coast.',
-    description:
-      "Redwood National Park is genuinely otherworldly: giant, ancient trees along the Pacific coast, the moss-draped walls of Fern Canyon, and some of the most dramatic coastline in Northern California. We stay in a huge private villa deep in the conifer forest, with a hot tub, a big private plot, and plenty of room to spread out.",
-    included: [
-      'Villa accommodation, 2 nights, hot tub & large private grounds',
-      'Round-trip transportation from LA (gas not included)',
-      'Professional massage session',
-      'BBQ, a DJ party, & an evening sound healing session',
-      'The full daily program \u2014 hikes, sightseeing, and more',
-    ],
-    itinerary: [
-      {
-        day: 'Day 1',
-        title: 'Check-in',
-        description:
-          'Arrive and settle into the villa. Activities on-site, a BBQ, hot tub, a professional massage, and a party with a DJ to kick things off.',
-      },
-      {
-        day: 'Day 2',
-        title: 'Redwoods & Fern Canyon',
-        description:
-          'A hike through Redwood National Park and the otherworldly Fern Canyon. Back at the villa: BBQ, hot tub, more activities, a professional massage, and an evening sound healing session.',
-      },
-      {
-        day: 'Day 3',
-        title: 'The Northern California coast',
-        description:
-          'A relaxed day visiting the most significant spots in the redwoods and the dramatic Northern California coastline before heading home.',
-      },
-    ],
-    gallery: [
-      { image: '/images/redwood-fern-canyon.jpg', alt: 'The moss-and-fern-draped walls of Fern Canyon' },
-      { image: '/images/redwood-fern-walkway.jpg', alt: 'Boardwalk crossing the creek through Fern Canyon' },
-      { image: '/images/redwood-forest-rays.jpg', alt: 'Sunlight streaming through the old-growth redwoods' },
-      { image: '/images/redwood-coastal-cove.jpg', alt: 'A quiet cove along the Northern California coast' },
-      { image: '/images/redwood-villa-living.jpg', alt: 'Villa living room and dining area' },
-      { image: '/images/redwood-coastal-view.jpg', alt: 'Elevated view of the coastline and lagoon near Redwood National Park' },
-    ],
-  },
-  {
     slug: 'bryce-canyon',
     name: 'Bryce Canyon National Park',
     location: 'Utah',
@@ -190,6 +138,7 @@ export const pastTripsHistory: PastTripsYear[] = [
       'Grand Canyon',
       'Bryce Canyon',
       'Zion & The Narrows',
+      'Redwood National Park',
       'Mt. Shasta',
       'Hawaii \u2014 Maui',
       'Lake Tahoe & Eastern Sierra',
