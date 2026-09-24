@@ -100,10 +100,10 @@ export const retreats: Retreat[] = [
     startDate: '2026-10-16',
     totalFrom: '$500',
     groupSize: '16+ people',
-    image: '/images/flagstaff-grand-canyon-header.jpg',
-    imageAlt: 'Layered canyon walls and a rock spire in the Grand Canyon',
-    heroImage: '/images/flagstaff-grand-canyon-header.jpg',
-    heroImageAlt: 'Layered canyon walls and a rock spire in the Grand Canyon',
+    image: '/images/flagstaff-watchtower-sunset-header.jpg',
+    imageAlt: 'Desert View Watchtower overlooking the Grand Canyon at sunset',
+    heroImage: '/images/flagstaff-watchtower-sunset-header.jpg',
+    heroImageAlt: 'Desert View Watchtower overlooking the Grand Canyon at sunset',
     summary:
       'Three days between a private-rooftop villa in Flagstaff and the rim of the Grand Canyon — hikes through golden aspen forest, hot tub soaks, and a sound healing session under the stars.',
     description:
@@ -136,6 +136,7 @@ export const retreats: Retreat[] = [
       },
     ],
     gallery: [
+      { image: '/images/flagstaff-canyon-spire.jpg', alt: 'Layered canyon walls and a rock spire in the Grand Canyon' },
       { image: '/images/flagstaff-peaks-autumn.jpg', alt: 'Snow-capped San Francisco Peaks above a golden aspen forest' },
       { image: '/images/flagstaff-aspen-path.jpg', alt: 'A path through a golden aspen forest near Flagstaff' },
       { image: '/images/flagstaff-villa-rooftop-aerial.jpg', alt: 'Aerial view of the villa and its private rooftop deck' },
