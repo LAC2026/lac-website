@@ -130,7 +130,7 @@ export const retreats: Retreat[] = [
       },
       {
         day: 'Day 3',
-        title: 'Autumn forest & the Grand Canyon',
+        title: 'Flagstaff autumn forest & scenic locations',
         description:
           "Hot tub and activities on-site and in the game room, then a scenic hike through the autumn forest and other scenic spots in Arizona on our way home.",
       },
