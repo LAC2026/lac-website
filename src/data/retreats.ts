@@ -91,6 +91,58 @@ export const retreats: Retreat[] = [
       { image: '/images/bryce-villa-living.jpg', alt: 'Villa kitchen, dining, and living area' },
     ],
   },
+  {
+    slug: 'flagstaff-grand-canyon',
+    name: 'Flagstaff & The Grand Canyon',
+    location: 'Arizona',
+    dates: 'October 16–18 · Private villa',
+    fullDates: 'October 16–18, 2026',
+    startDate: '2026-10-16',
+    totalFrom: '$500',
+    groupSize: '16+ people',
+    image: '/images/flagstaff-grand-canyon-header.jpg',
+    imageAlt: 'Layered canyon walls and a rock spire in the Grand Canyon',
+    heroImage: '/images/flagstaff-grand-canyon-header.jpg',
+    heroImageAlt: 'Layered canyon walls and a rock spire in the Grand Canyon',
+    summary:
+      'Three days between a private-rooftop villa in Flagstaff and the rim of the Grand Canyon — hikes through golden aspen forest, hot tub soaks, and a sound healing session under the stars.',
+    description:
+      "We're staying in a luxury villa with a private rooftop, tennis, and a hot tub, based in Flagstaff for easy access to the Grand Canyon and the golden aspen forests of northern Arizona. Expect scenic hikes, professional massages, a BBQ and DJ party, and an evening sound healing session, with plenty of downtime on the rooftop between it all.",
+    included: [
+      'Villa accommodation, 2 nights, private rooftop, tennis & hot tub',
+      'Round-trip transportation from LA (gas not included)',
+      'Professional massage sessions',
+      'BBQ, a DJ party, & an evening sound healing session',
+      'The full daily program — hikes, sightseeing, and more',
+    ],
+    itinerary: [
+      {
+        day: 'Day 1',
+        title: 'Check-in',
+        description:
+          'Arrive and settle into the villa. Activities on-site and in the game room, hot tub, a professional massage, a BBQ, and a party with a DJ.',
+      },
+      {
+        day: 'Day 2',
+        title: 'A scenic hike in the Grand Canyon',
+        description:
+          'A scenic hike in the Grand Canyon, followed by a professional massage. Back at the villa: activities on-site and in the game room, hot tub, a BBQ, and an evening sound healing session.',
+      },
+      {
+        day: 'Day 3',
+        title: 'Autumn forest & the Grand Canyon',
+        description:
+          "Hot tub and activities on-site and in the game room, then a scenic hike through the autumn forest before visiting the Grand Canyon and other scenic spots in Arizona on our way home.",
+      },
+    ],
+    gallery: [
+      { image: '/images/flagstaff-peaks-autumn.jpg', alt: 'Snow-capped San Francisco Peaks above a golden aspen forest' },
+      { image: '/images/flagstaff-aspen-path.jpg', alt: 'A path through a golden aspen forest near Flagstaff' },
+      { image: '/images/flagstaff-villa-rooftop-aerial.jpg', alt: 'Aerial view of the villa and its private rooftop deck' },
+      { image: '/images/flagstaff-villa-rooftop-lounge.jpg', alt: 'The private rooftop with a hot tub, fire pit, and lounge seating' },
+      { image: '/images/flagstaff-villa-kitchen.jpg', alt: 'Villa kitchen and dining area' },
+    ],
+  },
 ];
 
 export const igPhotos = [
