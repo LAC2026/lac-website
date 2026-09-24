@@ -93,7 +93,7 @@ export const retreats: Retreat[] = [
   },
   {
     slug: 'flagstaff-grand-canyon',
-    name: 'Flagstaff & The Grand Canyon',
+    name: 'The Grand Canyon & Flagstaff',
     location: 'Arizona',
     dates: 'October 16–18 · Private villa',
     fullDates: 'October 16–18, 2026',
@@ -107,7 +107,7 @@ export const retreats: Retreat[] = [
     summary:
       'Three days between a private-rooftop villa in Flagstaff and the rim of the Grand Canyon — hikes through golden aspen forest, hot tub soaks, and a sound healing session under the stars.',
     description:
-      "We're staying in a luxury villa with a private rooftop, tennis, and a hot tub, based in Flagstaff for easy access to the Grand Canyon and the golden aspen forests of northern Arizona. Expect scenic hikes, professional massages, a BBQ and DJ party, and an evening sound healing session, with plenty of downtime on the rooftop between it all.",
+      "We're staying in a luxury villa with a private rooftop, tennis, and a hot tub, based in Flagstaff for easy access to the Grand Canyon and the golden aspen forests of northern Arizona. Expect scenic hikes, professional massage sessions, a BBQ and DJ party, and an evening sound healing session, with plenty of downtime on the rooftop between it all.",
     included: [
       'Villa accommodation, 2 nights, private rooftop, tennis & hot tub',
       'Round-trip transportation from LA (gas not included)',
@@ -120,19 +120,19 @@ export const retreats: Retreat[] = [
         day: 'Day 1',
         title: 'Check-in',
         description:
-          'Arrive and settle into the villa. Activities on-site and in the game room, hot tub, a professional massage, a BBQ, and a party with a DJ.',
+          'Arrive and settle into the villa. Activities on-site and in the game room, hot tub, a professional massage session, a BBQ, and a party with a DJ.',
       },
       {
         day: 'Day 2',
         title: 'A scenic hike in the Grand Canyon',
         description:
-          'A scenic hike in the Grand Canyon, followed by a professional massage. Back at the villa: activities on-site and in the game room, hot tub, a BBQ, and an evening sound healing session.',
+          'A scenic hike in the Grand Canyon. Back at the villa: activities on-site and in the game room, hot tub, a professional massage session, a BBQ, and an evening sound healing session.',
       },
       {
         day: 'Day 3',
         title: 'Autumn forest & the Grand Canyon',
         description:
-          "Hot tub and activities on-site and in the game room, then a scenic hike through the autumn forest before visiting the Grand Canyon and other scenic spots in Arizona on our way home.",
+          "Hot tub and activities on-site and in the game room, then a scenic hike through the autumn forest and other scenic spots in Arizona on our way home.",
       },
     ],
     gallery: [
