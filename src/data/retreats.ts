@@ -39,6 +39,59 @@ export const refundPolicy = {
 
 export const retreats: Retreat[] = [
   {
+    slug: 'yosemite-halloween',
+    name: 'Yosemite National Park',
+    location: 'California',
+    dates: 'October 30–November 1 · Halloween party',
+    fullDates: 'October 30 – November 1, 2026',
+    startDate: '2026-10-30',
+    totalFrom: '$500',
+    groupSize: '16+ people',
+    image: '/images/yosemite-tunnel-view-header.jpg',
+    imageAlt: 'Misty Yosemite Valley with fall colors, seen from Tunnel View',
+    heroImage: '/images/yosemite-tunnel-view-header.jpg',
+    heroImageAlt: 'Misty Yosemite Valley with fall colors, seen from Tunnel View',
+    summary:
+      'Three days of Halloween fun in Yosemite — an unforgettable valley hike, a costume party, and a luxury villa with gaming rooms, a spa, and a hot tub.',
+    description:
+      "Join our Active Retreat in Yosemite National Park for a Halloween celebration and costume party. We're staying in a luxury villa with all amenities, gaming rooms, a spa, and a hot tub, with an unforgettable hike through Yosemite Valley in the middle of fall color season.",
+    included: [
+      'Villa accommodation, 2 nights, gaming rooms, spa & hot tub',
+      'Round-trip transportation from LA (gas not included)',
+      'Professional massage sessions',
+      'BBQ, a Halloween costume party, & a sound healing session',
+      'The full daily program \u2014 hike, sightseeing, and more',
+    ],
+    itinerary: [
+      {
+        day: 'Day 1',
+        title: 'Check-in & Halloween party',
+        description:
+          'Arrive and settle into the villa. Activities in the game room and on-site, spa, hot tub, a professional massage, a barbecue, and a Halloween costume party.',
+      },
+      {
+        day: 'Day 2',
+        title: 'Unforgettable hike in Yosemite Valley',
+        description:
+          'An unforgettable hike in Yosemite Valley. Back at the villa: activities in the game room and on-site, spa, hot tub, a professional massage, a barbecue, and a sound healing session.',
+      },
+      {
+        day: 'Day 3',
+        title: 'Scenic Yosemite & departure',
+        description:
+          'Activities in the game room and on-site, hot tub, and a visit to scenic places in Yosemite National Park before we leave the park.',
+      },
+    ],
+    gallery: [
+      { image: '/images/yosemite-half-dome-river.jpg', alt: 'Half Dome reflected in the Merced River among fall colors' },
+      { image: '/images/yosemite-falls-fall-colors.jpg', alt: 'Yosemite Falls above golden and orange fall foliage' },
+      { image: '/images/yosemite-half-dome-closeup.jpg', alt: 'Close-up of Half Dome with a dusting of snow' },
+      { image: '/images/yosemite-villa-living.jpg', alt: 'Spacious villa living room with sectional sofas' },
+      { image: '/images/yosemite-villa-game-room.jpg', alt: 'Villa game room with a pool table' },
+      { image: '/images/yosemite-villa-hot-tub.jpg', alt: 'Villa hot tub and deck lit up in the evening' },
+    ],
+  },
+  {
     slug: 'flagstaff-grand-canyon',
     name: 'The Grand Canyon & Flagstaff',
     location: 'Arizona',
