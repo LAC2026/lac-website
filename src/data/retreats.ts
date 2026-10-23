@@ -91,6 +91,59 @@ export const retreats: Retreat[] = [
       { image: '/images/yosemite-villa-hot-tub.jpg', alt: 'Villa hot tub and deck lit up in the evening' },
     ],
   },
+  {
+    slug: 'sedona',
+    name: 'Sedona',
+    location: 'Arizona',
+    dates: 'November 13\u201315 \u00b7 Private villa',
+    fullDates: 'November 13\u201315, 2026',
+    startDate: '2026-11-13',
+    totalFrom: '$500',
+    groupSize: '16+ people',
+    image: '/images/sedona-header.jpg',
+    imageAlt: 'Red rock landscape in Sedona, Arizona',
+    heroImage: '/images/sedona-header.jpg',
+    heroImageAlt: 'Red rock landscape in Sedona, Arizona',
+    summary:
+      'Three days of red rock hikes, autumn colors, and wellness practices in Sedona, from a luxury villa with a pool, hot tub, and game room.',
+    description:
+      "Join us for an active retreat in Sedona, staying in a luxury villa with a swimming pool, hot tub, game room, and all the amenities for a perfect getaway. Get ready for breathtaking red rock landscapes, autumn colors, scenic hikes, wellness practices, relaxation, great music, and amazing people. It's an opportunity to reconnect with nature, recharge your energy, make new friends, and become part of our active community.",
+    included: [
+      'Villa accommodation, 2 nights, pool, hot tub & game room',
+      'Round-trip transportation from LA (gas not included)',
+      'Professional massage sessions',
+      'BBQ, a DJ party, nail board meditation, & a sound healing session',
+      'The full daily program \u2014 hikes, sightseeing, and more',
+    ],
+    itinerary: [
+      {
+        day: 'Day 1',
+        title: 'Check-in',
+        description:
+          'Arrive and settle into the villa. Activities by the pool and in the game room, hot tub, a professional massage session, a barbecue, and a DJ party.',
+      },
+      {
+        day: 'Day 2',
+        title: 'Hike in Red Rock Park',
+        description:
+          'A hike in Red Rock Park through the autumn forest. Back at the villa: activities by the pool and in the game room, hot tub, a professional massage session, nail board meditation, and a sound healing session.',
+      },
+      {
+        day: 'Day 3',
+        title: 'Sedona Vortex & iconic places',
+        description:
+          "A professional massage session, a visit to the Sedona Vortex, and a tour of Sedona's iconic places before we head home.",
+      },
+    ],
+    gallery: [
+      { image: '/images/sedona-red-rocks-autumn.jpg', alt: 'Red rock formations above autumn-colored trees in Sedona' },
+      { image: '/images/sedona-cathedral-rock-reflection.jpg', alt: 'Cathedral Rock reflected in Oak Creek with golden fall leaves' },
+      { image: '/images/sedona-seven-sacred-pools.jpg', alt: 'Seven Sacred Pools in the red rock at sunset' },
+      { image: '/images/sedona-devils-bridge.jpg', alt: 'A hiker standing on Devil\'s Bridge above the Sedona valley' },
+      { image: '/images/sedona-villa-aerial.jpg', alt: 'Aerial view of the villa with its swimming pool and hot tub' },
+      { image: '/images/sedona-villa-pool-hot-tub.jpg', alt: 'Villa pool and hot tub with a palm tree and desert views' },
+    ],
+  },
 ];
 
 export const igPhotos = [
